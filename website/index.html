@@ -2,85 +2,76 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Sharp Point Coffee</title>
-  <!-- This stylesheet will somewhat "normalize" the styling across browsers -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Raleway:wght@300&display=swap" rel="stylesheet"><!--My font link I made--> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- material-symbols-outlined -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="author" content="Harold Pham, Vivian Hung, Joseph Tran, Muyang Zhou">
+    <meta name="description" content="A page to find understanding about why we should care about ChatGPT.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home - ChatGPT: A Brief Rendition</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.jpg">
+    <title>Sharp Point Coffee</title>
+    <!-- This stylesheet will somewhat "normalize" the styling across browsers -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- material-symbols-outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <nav>
-    <ul>
-      <li><a href="#"><span class="material-symbols-outlined">cottage</span></a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#discussion">Discussion</a></li>
-      <li><a href="#tweet">Tweets</a></li>
-    </ul>
-  </nav>
-
-  <header>
-    <div class="container">
-      <h1>Sharp Point Coffee</h1>
-      <p class="motto">Caffeinating sleepy Huskies since 2018</p>
+    <nav>
+        <div class="row">
+        <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div>
+        <div id="tabs">
+            <!-- <a href="#"><i class="home" aria-label="Home Page"></i></a>
+            <a href="#"><i class="about" aria-label="About Page"></i></a>
+            <a href="#"><i class="tweet" aria-label="Tweets Page"></i></a>
+            <a href="#"><i class="discussion" aria-label="Discussion Page"></i></a> -->
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Tweet</a>
+            <a href="#">Discussion</a>
+        </div>
     </div>
-  </header>  
+    </nav>
 
-  <main>
+    <header>
+        <div class="container">
+            <h1>ChatGPT: A Brief Rendition</h1>
+            <p class="motto">What does it it mean for everyone?</p>
+        </div>
+    </header>
 
-    <section id="menu"> 
-      <div class="container">
-        <h2>Menu</h2>
-        <dl>
-          <dt>Espresso</dt>
-          <dd>
-            <img src="img/espresso-emre-NZMeJsrMC8U-unsplash.jpg" alt="espresso">
-            <p>Dark and bold</p>
-          </dd>
+    <main>
 
-          <dt>Latte</dt>
-          <dd>
-            <img src="img/latte-jonas-jacobsson-RFHFV7lVQBY-unsplash.jpg" alt="latte">
-            <p>Steamed milk with espresso</p>
-          </dd>
+        <section id="menu">
+            <div class="container">
+                <h2>What is ChatGPT?</h2>
+                <p>ChatGPT is a Large Language Model (LLM) developed by OpenAI that is capable of completing a wide range of natural language tasks, such as text generation, translation, and summarization. It is also able to generate code and document it well. All of this can be done with prompts given by the user. It is trained on text data scraped from the internet, which includes 25% of Reddit posts and various academic articles and books. The model has been released recently and is already showing a lot of potential for various applications, but it also raises important ethical and societal questions.</p>
+                <img src="img/chatgpt.png" alt="ChatGPT Screenshot">
+            </div>
+        </section>
 
-          <dt>Mocha</dt>
-          <dd>
-            <img src="img/mocha-janaya-dasiuk-teW0I5i2HfU-unsplash.jpg" alt="mocha">
-            <p>Steamed milk with espresso and chocolate</p>
-          </dd>
+        <section id="about">
+            <div class="container">
+                <h2>Why Should We Care?</h2>
+                <p>One of the main concerns is the potential bias in the data used to train the model, as well as the implications of data collection from social media platforms such as Twitter and Reddit, where users have no way to opt out. Additionally, there are discussions about the potential misuse of ChatGPT, such as in academic misconduct and plagiarism. To address these concerns, we propose to start healthy discussions among researchers, students, and educators about the positive and negative outcomes of ChatGPT, and to explore ways to leverage its capabilities while avoiding its potential harms. 
+                </p>
+            </div>
+        </section>
 
-          <dt>Cappuccino</dt>
-          <dd>
-            <img src="img/cappuccino-jason-wong-kSlL887znkE-unsplash.jpg" alt="cappuccino">
-            <p>Foamed milk with espresso, topped with cinnamon shavings</p>
-          </dd>
+    </main>
 
-        </dl>
-      </div>
-    </section>
-
-    <section id="about"> 
-      <div class="container">
-        <h2>About us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tenetur facere maiores vel id quos, nisi veniam dolorum? Perspiciatis accusantium laboriosam laudantium earum ex nobis aperiam debitis. Adipisci, deleniti reprehenderit error debitis vitae consectetur, officia alias consequatur aliquid doloremque eveniet, animi qui? Optio obcaecati assumenda asperiores quis cum accusantium sint!</p>
-        <p>Doloribus odio nihil ipsam, provident ducimus libero eveniet cum molestiae accusantium laborum sunt voluptatum. Praesentium debitis nihil iure nobis corrupti, saepe adipisci voluptates quos doloribus, iusto dicta facere. Similique laborum maxime modi repellendus aliquam, natus voluptates deserunt ut itaque numquam nisi explicabo consequatur eligendi sed temporibus atque quisquam eaque illum.</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <p><a href="mailto:email@coffee.uw.edu"><span class="material-icons">email</span> email@coffee.uw.edu</a></p>
-      <p><a href="tel:555-123-4567"><span class="material-icons">phone</span> 555-123-4567</a></p>
-      <p>&copy; Sharp point coffee 2021</p>
-    </div>
-  </footer>
+    <footer>
+        <div class="container">
+            <p><a href="mailto:email@chatgpt.uw.edu"><span class="material-icons">email</span> email@chatgpt.uw.edu</a>
+            </p>
+            <p><a href="tel:206-123-4567"><span class="material-icons">phone</span> 206-123-4567</a></p>
+            <p>&copy; Harold Pham, Vivian Hung, Joseph Tran, Muyang Zhou</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
