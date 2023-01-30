@@ -128,9 +128,10 @@ section#about-infrastructures{
 }
 
 .button{
+    font-size: 1.75rem;
     text-align:center;
     background-color:#f68700;
-    width:900px;
+    width: 475px;
     height:60px;
     line-height:60px;
     color:white;
@@ -144,7 +145,7 @@ section#about-infrastructures{
 
 footer{
     color: white;
-    background-color: #3e1305;
+    background-color: #f68700;
 }
 footer a{
     color: white;
@@ -270,4 +271,23 @@ section#post-area{
     color:#FF0042;
     font-weight: bold;
     text-decoration: none;
+}
+
+@media (min-width:800px){
+
+    .button{
+    width: 700px;
+    height:60px;
+}
+
+
+}
+
+@media (min-width:1200px){
+
+    .button{
+        width: 900px;
+        height:60px;
+    }
+
 }
