@@ -35,7 +35,7 @@ span.material-icons{
     padding: 1rem;
 }
 
-p,dl{
+p, dl{
     margin-top:0;
     margin-bottom: 1rem;
 }
@@ -57,7 +57,7 @@ nav ul{
 }
 
 nav img{
-    padding: 0 2rem;
+    padding: 0 1rem 0 2.25rem;
     margin-top: .5rem;
 }
 
@@ -82,10 +82,23 @@ header{
     background-position: center;
     background-color: #0084af;
 }
+
 header p{
     font-style: italic;
     font-size: 1.25rem;
 }
+
+main img{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.credit{
+    font-size: 16px;
+    text-align: center;
+}
+
 section#menu{
     background-color: #f0f0f0;
 }
@@ -113,6 +126,18 @@ section#about-infrastructures{
     line-height: 1.5;
 }
 
+.button{
+    text-align:center;
+    background-color:#f68700;
+    width:900px;
+    height:60px;
+    line-height:60px;
+    color:white;
+    margin:20px auto;
+    box-shadow: 5px 5px rgb(0 0 0 / .2), -5px 5px rgb(0 0 0 / .2);
+    border-radius: 12px;
+}
+
 footer{
     color: white;
     background-color: #3e1305;
@@ -131,14 +156,11 @@ footer p:last-of-type{
     padding-top: 8px;
 }
 
-p.credit{
-    font-size: 16px;
-}
-
 nav li a:hover, nav li a:active, nav li a:focus  { 
     color:rgb(168, 255, 158);
     border-bottom: solid .8rem rgb(168, 255, 158);
     font-weight: 1000;
 }
+
 
 
