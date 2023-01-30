@@ -53,9 +53,14 @@ nav{
 
 nav ul{
     margin: 0;
-    padding: 0;
-
+    padding: 0 0 .5rem 0;  
 }
+
+nav img{
+    padding: 0 2rem;
+    margin-top: .5rem;
+}
+
 nav li{
     display: inline;
     margin: 0 1rem;
@@ -126,8 +131,14 @@ footer p:last-of-type{
     padding-top: 8px;
 }
 
-nav a:hover, nav a:active, nav a:focus  { /*issues here*/
-    color:#f0f0f0;
-    border-bottom: solid .8rem #f0f0f0;
+p.credit{
+    font-size: 16px;
 }
+
+nav li a:hover, nav li a:active, nav li a:focus  { 
+    color:rgb(168, 255, 158);
+    border-bottom: solid .8rem rgb(168, 255, 158);
+    font-weight: 1000;
+}
+
 
