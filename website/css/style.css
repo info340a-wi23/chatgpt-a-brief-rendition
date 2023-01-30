@@ -40,6 +40,19 @@ p, dl{
     margin-bottom: 1rem;
 }
 
+ul#inline-menu{
+    display: none;
+}
+
+div#hamburger-menu{
+    display: block;
+}
+
+
+div#tabs{
+    display:none;
+}
+
 nav{
     position: fixed;
     width: 100%;
@@ -131,7 +144,7 @@ section#about-infrastructures{
     font-size: 1.75rem;
     text-align:center;
     background-color:#f68700;
-    width: 475px;
+    width: 450px;
     height:60px;
     line-height:60px;
     color:white;
@@ -274,6 +287,14 @@ section#post-area{
 }
 
 @media (min-width:800px){
+
+    ul#inline-menu{
+        display:inline-block;
+    }
+
+    div#hamburger-menu{
+        display:none;
+    }
 
     .button{
     width: 700px;
