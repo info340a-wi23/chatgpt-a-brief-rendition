@@ -141,12 +141,12 @@ section#about-infrastructures{
 }
 
 .button{
-    font-size: 1.75rem;
-    text-align:center;
+    font-size: 1.35rem;
+    text-align: center;
     background-color:#f68700;
     width: 450px;
-    height:60px;
-    line-height:60px;
+    height:40px;
+    line-height:35px;
     color:white;
     margin:20px auto;
     box-shadow: 4px 4px rgba(44, 44, 44, 0.2), -4px 4px rgba(44, 44, 44, 0.2);
@@ -214,25 +214,9 @@ nav li a:hover, nav li a:active, nav li a:focus  {
     margin-top: 5px;
 }
 
-.body .authors .username{
-    font-size: 20px;
-    color:#FF0042;
-    font-weight: bolder;
-    text-decoration: none;
-}
-
 .body .authors img{
     max-width: 50px;
     max-height: 80px;
-}
-
-.body .content .comment button{
-    border:none;
-    padding:10px;
-    font-weight: bolder;
-    box-shadow: 4px 6px #f68700;
-    cursor: pointer;
-    float: right;
 }
 
 /* comment section */
@@ -258,8 +242,13 @@ nav li a:hover, nav li a:active, nav li a:focus  {
     border: solid 1px #000000;
 }
 
-section#post-area{
-    background-color: #f0f0f0;
+section#search-box-area, section#post-area{
+    background-color: #ffeee1;
+    line-height: 1.5;
+}
+
+section#navigate-area {
+    background-color: #f68700;
     line-height: 1.5;
 }
 
@@ -270,14 +259,14 @@ section#post-area{
 }
 
 .navigate a{
-    color:#fff;
-    font-weight: bold;
+    color: white;
+    font-weight: bolder;
     text-decoration: none;
 }
 
 .navigate a:hover{
     color:#FF0042;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .username a{
@@ -297,8 +286,10 @@ section#post-area{
     }
 
     .button{
-    width: 700px;
-    height:60px;
+        font-size: 1.35rem;
+        width: 700px;
+        height:50px;
+        line-height:45px;
 }
 
 
@@ -307,8 +298,10 @@ section#post-area{
 @media (min-width:1200px){
 
     .button{
+        font-size: 1.50rem;
         width: 900px;
         height:60px;
+        line-height:55px;
     }
 
 }

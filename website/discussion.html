@@ -31,28 +31,40 @@
   </nav>
 
   <header>
-    <div class="search-box">
-      <div>
-          <select name="" id="">
-              <option value="Everything">Everything</option>
-              <option value="Titles">Titles</option>
-              <option value="Descriptions">Descriptions</option>
-          </select>
-          <input type="text" name="q" placeholder="search ...">
-          <button><i class="fa fa-search"></i></button>
-      </div>
-    </div>
-
-    <!--Navigation-->
-    <div class="navigate">
-      <span><a href="">MyForum - Forums</a> >> <a href="">random subforum</a> >> <a href="">random topic</a></span>
+    <div class="container">
+      <h1>ChatGPT: A Brief Rendition</h1>
+      <p class="motto">What does it mean for everyone?</p>
     </div>
   </header>  
 
   <main>
+    <section id="search-box-area">
+      <div class="container">
+        <h2>Discussion</h2>
+        <div class="search-box">
+          <div>
+              <select name="" id="">
+                  <option value="Everything">Everything</option>
+                  <option value="Titles">Titles</option>
+                  <option value="Descriptions">Descriptions</option>
+              </select>
+              <input type="text" name="q" placeholder="search ...">
+              <button><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="navigate-area">
+      <div class="container">
+        <!--Navigation-->
+        <div class="navigate">
+          <span><a href="">MyForum - Forums</a> >> <a href="">random subforum</a> >> <a href="">random topic</a></span>
+        </div>
+    </section>
+
     <section id="post-area">
       <div class="container">
-
         <!--Topic Section-->
         <div class="topic-container">
             <!--Original thread-->
@@ -60,7 +72,6 @@
                 <div class="authors">Author</div>
                 <div class="content">Topic: random topic (Read 1325 Times)</div>
             </div>
-
             <div class="body">
                 <div class="authors">
                     <div class="username"><a href="">Username</a></div>
@@ -81,7 +92,6 @@
                 </div>
             </div>
         </div>
-
         <!--Comment Area-->
         <div class="comment-area" id="comment-area">
           <form>
@@ -92,7 +102,6 @@
             <input type="submit" value="submit">
           </form>
         </div>
-
         <!--Comments Section-->
         <div class="comments-container">
             <div class="body">
@@ -123,8 +132,6 @@
             <input type="submit" value="submit">
           </form>
         </div>
-
-
         <!--Another Comment With replies-->
         <div class="comments-container">
             <div class="body">
@@ -155,6 +162,7 @@
             <input type="submit" value="submit">
           </form>
         </div>
+        
       </div>
     </section>
   </main>
@@ -165,7 +173,7 @@
         <p><a href="tel:206-123-4567"><span class="material-icons">phone</span> 206-123-4567</a></p>
         <p>&copy; Harold Pham, Vivian Hung, Joseph Tran, Muyang Zhou</p>
     </div>
-</footer>
+  </footer>
 
 </body>
 </html>
