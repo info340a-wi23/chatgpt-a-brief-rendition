@@ -134,8 +134,11 @@ section#about-infrastructures{
     line-height:60px;
     color:white;
     margin:20px auto;
-    box-shadow: 5px 5px rgb(0 0 0 / .2), -5px 5px rgb(0 0 0 / .2);
+    box-shadow: 4px 4px rgba(44, 44, 44, 0.2), -4px 4px rgba(44, 44, 44, 0.2);
     border-radius: 12px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
 }
 
 footer{
