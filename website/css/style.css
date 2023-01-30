@@ -81,6 +81,7 @@ header{
     background-size: cover;
     background-position: center;
     background-color: #0084af;
+    text-shadow: 1.5px 1.5px 2.5px black;
 }
 
 header p{
