@@ -308,7 +308,7 @@ section#navigate-area {
 
 }
 
-@media (min-width:1200px){
+@media (min-width: 992px){
 
     nav a{
         font-size: 1.25em;
