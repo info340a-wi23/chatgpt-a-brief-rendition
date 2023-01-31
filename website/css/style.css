@@ -173,6 +173,12 @@ section.about-infrastructures {
     justify-content: center;
 }
 
+.shrunk-img{
+    height:350px;
+    width:800px;
+
+}
+
 /* general rules for head, body and footer */
 
 .head {
