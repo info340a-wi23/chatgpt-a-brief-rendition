@@ -124,17 +124,17 @@ p.credit {
     text-align: center;
 }
 
-section#main-content dt {
+section.main-content dt {
     font-size: 1.25rem;
     font-weight: bold;
     margin-top: 1rem;
 }
 
-section#main-content dd {
+section.main-content dd {
     margin: 0;
 }
 
-section#main-content img {
+section.main-content img {
     height: auto;
     max-width: 100%;
     border-radius: 15px;
@@ -145,7 +145,7 @@ section {
     line-height: 1.5;
 }
 
-section#about-infrastructures {
+section.about-infrastructures {
     background-image: linear-gradient(rgb(168, 255, 158), rgb(159, 239, 255));
     line-height: 1.5;
 }
@@ -235,12 +235,12 @@ footer p:last-of-type {
     margin-block: 10px;
 }
 
-section#search-box-area, section#post-area {
+section.search-box-area, section.post-area {
     background-color: #ffeee1;
     line-height: 1.5;
 }
 
-section#navigate-area {
+section.navigate-area {
     background-color: #f68700;
     line-height: 1.5;
 }
