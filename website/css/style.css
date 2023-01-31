@@ -1,10 +1,10 @@
+/* General rules for HTML basics*/
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: "Nunito Sans", Arial, sans-serif;
-    /* font-size: 16px; */
     font-size: 1.25rem;
 }
 
@@ -47,13 +47,15 @@ ul#inline-menu{
 
 div#hamburger-menu{
     display: block;
-} */
+
 
 
 div#tabs {
     display: none;
 }
+} */
 
+/* Navigation bar rules */
 nav {
     position: fixed;
     width: 100%;
@@ -87,6 +89,13 @@ nav a {
     text-decoration: none;
 }
 
+nav li a:hover, nav li a:active, nav li a:focus {
+    color: rgb(168, 255, 158);
+    border-bottom: solid .8rem rgb(168, 255, 158);
+    font-weight: 1000;
+}
+
+/* Header, main and section rules */
 
 header {
     color: white;
@@ -157,37 +166,14 @@ section#about-infrastructures {
     border-width: 2px;
 }
 
-footer {
-    color: white;
-    background-color: #f68700;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-}
-
-footer p {
-    margin: 0;
-    line-height: 1.25;
-}
-
-footer p:last-of-type {
-    padding-top: 8px;
-}
-
-nav li a:hover, nav li a:active, nav li a:focus {
-    color: rgb(168, 255, 158);
-    border-bottom: solid .8rem rgb(168, 255, 158);
-    font-weight: 1000;
-}
-
 .search-box {
     margin-top: 20px;
     padding: 40px;
     display: flex;
     justify-content: center;
 }
+
+/* general rules for head, body and footer */
 
 .head {
     display: flex;
@@ -217,7 +203,27 @@ nav li a:hover, nav li a:active, nav li a:focus {
     max-height: 80px;
 }
 
-/* comment section */
+footer {
+    color: white;
+    background-color: #f68700;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.25;
+}
+
+footer p:last-of-type {
+    padding-top: 8px;
+}
+
+
+/* Comment box rules */
 .comment-area {
     margin-bottom: 50px;
 }
@@ -261,6 +267,8 @@ section#navigate-area {
     font-weight: bold;
     text-decoration: none;
 }
+
+/* Responsiveness rules */
 
 @media (min-width: 600px) {
     nav a {
