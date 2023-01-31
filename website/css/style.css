@@ -124,17 +124,17 @@ p.credit {
     text-align: center;
 }
 
-section#menu dt {
+section#main-content dt {
     font-size: 1.25rem;
     font-weight: bold;
     margin-top: 1rem;
 }
 
-section#menu dd {
+section#main-content dd {
     margin: 0;
 }
 
-section#menu img {
+section#main-content img {
     height: auto;
     max-width: 100%;
     border-radius: 15px;
