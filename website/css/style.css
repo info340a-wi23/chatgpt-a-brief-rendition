@@ -40,13 +40,14 @@ p, dl{
     margin-bottom: 1rem;
 }
 
+/*  Saving this for the hamburger menu we will implement when we learn react and JS.
 ul#inline-menu{
     display: none;
 }
 
 div#hamburger-menu{
     display: block;
-}
+} */
 
 
 div#tabs{
@@ -80,7 +81,7 @@ nav li{
 }
 nav a{
     color: white;
-    font-size: 1.25em;
+    font-size: .8em;
     margin-right: .5em;
     text-decoration: none;
 }
@@ -275,22 +276,27 @@ section#navigate-area {
     text-decoration: none;
 }
 
+@media (min-width: 600px){
+    nav a{
+        font-size: 1em;
+    }
+}
 @media (min-width:800px){
 
-    ul#inline-menu{
+    /* ul#inline-menu{ Saving this for when we learn JS and react for a hamburger menu
         display:inline-block;
     }
 
     div#hamburger-menu{
         display:none;
-    }
+    } */
 
     .button{
         font-size: 1.35rem;
         width: 700px;
         height:50px;
         line-height:45px;
-}
+    }
 
     .row{
         display:flex;
@@ -304,6 +310,9 @@ section#navigate-area {
 
 @media (min-width:1200px){
 
+    nav a{
+        font-size: 1.25em;
+    }
     .button{
         font-size: 1.50rem;
         width: 900px;
