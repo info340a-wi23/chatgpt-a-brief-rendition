@@ -232,16 +232,7 @@ nav li a:hover, nav li a:active, nav li a:focus  {
     margin-block: 10px;
 }
 
-.comment-area input{
-    float: right;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
-.comment-area input:hover{
-    border: solid 1px #000000;
-}
 
 section#search-box-area, section#post-area{
     background-color: #ffeee1;
