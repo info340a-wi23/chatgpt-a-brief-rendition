@@ -7,8 +7,7 @@
   <meta name="description" content="A page to find understanding about why we should care about ChatGPT.">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Home - ChatGPT: A Brief Rendition</title>
-  <link rel="icon" type="image/x-icon" href="/img/favicon.jpg">
-  <title>Sharp Point Coffee</title>
+  <link rel="icon" href="../website/img/favicon.png">
   <!-- This stylesheet will somewhat "normalize" the styling across browsers -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Raleway:wght@300&display=swap"
@@ -23,28 +22,32 @@
 
 <body>
   <nav>
-    <!-- <div id="hamburger-menu"><a href="#"><i class="fa fa-bars" aria-label="menu"></i></a></div> -->
+    <!-- <div id="hamburger-menu"><a href="#tabs">menu</a></div> Saving this code for when we implement hamburger menus with react/JS
     <div id="tabs">
-      <ul>
-        <img src="../website/img/favicon.ico" alt="A picture of the website logo.">
-        <li><a href="../website/index.html"><span class="material-symbols-outlined">cottage</span></a></li>
-        <li><a href="../website/about.html">About</a></li>
-        <li><a href="../website/discussion.html">Discussion</a></li>
-        <li><a href="../website/tweet.html">Tweets</a></li>
-      </ul>
-    </div>
+      <a href="../website/index.html">Home</a>
+      <a href="../website/about.html">About</a>
+      <a href="../website/tweet.html">Tweets</a>
+      <a href="../website/discussion.html">Discussion</a>
+   </div>  -->
+
+    <ul class="inline-menu">
+      <li><img src="../website/img/favicon.png" alt="A picture of the website logo."></li>
+      <li><a href="../website/index.html"><span class="material-symbols-outlined">cottage</span></a></li>
+      <li><a href="../website/about.html">About</a></li>
+      <li><a href="../website/discussion.html">Discussion</a></li>
+      <li><a href="../website/tweet.html">Tweets</a></li>
+    </ul>
   </nav>
 
   <header>
     <div class="container">
       <h1>ChatGPT: A Brief Rendition</h1>
-      <p class="motto">What does it it mean for everyone?</p>
+      <p class="motto">What does it mean for everyone?</p>
     </div>
   </header>
 
   <main>
-
-    <section id="menu">
+    <section class="main-content">
       <div class="container">
         <h2>What is ChatGPT?</h2>
         <p>ChatGPT is a Large Language Model (LLM) developed by OpenAI that is capable of completing a wide range of
@@ -53,11 +56,15 @@
           scraped from the internet, which includes 25% of Reddit posts and various academic articles and books. The
           model has been released recently and is already showing a lot of potential for various applications, but it
           also raises important ethical and societal questions.</p>
-        <img src="img/chatgpt.png" alt="ChatGPT Screenshot">
+        <picture>
+          <source srcset="img/chatgptsm.jpg" media="(max-width: 600px)">
+          <source srcset="img/chatgptm.png" media="(max-width: 992px)">
+          <img src="img/chatgptlg.png" alt="ChatGPT Screenshot">
+        </picture>
       </div>
     </section>
 
-    <section id="about">
+    <section class="about">
       <div class="container">
         <h2>Why Should We Care?</h2>
         <p>One of the main concerns is the potential bias in the data used to train the model, as well as the
@@ -69,13 +76,11 @@
         </p>
       </div>
     </section>
-
   </main>
 
   <footer>
     <div class="container">
-      <p><a href="mailto:email@chatgpt.uw.edu"><span class="material-icons">email</span> email@chatgpt.uw.edu</a>
-      </p>
+      <p><a href="mailto:email@chatgpt.uw.edu"><span class="material-icons">email</span> email@chatgpt.uw.edu</a></p>
       <p><a href="tel:206-123-4567"><span class="material-icons">phone</span> 206-123-4567</a></p>
       <p>&copy; Harold Pham, Vivian Hung, Joseph Tran, Muyang Zhou</p>
     </div>
