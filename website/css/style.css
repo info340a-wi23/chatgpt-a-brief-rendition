@@ -65,6 +65,7 @@ nav {
     padding-bottom: 1rem;
     top: 0;
     left: 0;
+    text-shadow: 1px 1px 2px black;
 }
 
 nav ul {
@@ -212,6 +213,7 @@ section.about-infrastructures {
 footer {
     color: white;
     background-color: #f68700;
+    text-shadow: 1px 1px 2px black;
 }
 
 footer a {
