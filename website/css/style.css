@@ -292,6 +292,13 @@ section#navigate-area {
         line-height:45px;
 }
 
+    .row{
+        display:flex;
+    }
+
+    .column{
+        flex-grow:1;
+    }
 
 }
 
