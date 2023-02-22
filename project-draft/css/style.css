@@ -114,7 +114,7 @@ header p {
     font-size: 1.25rem;
 }
 
-main img {
+.about-caring img, .about-infrastructures img {
     display: block;
     margin-left: auto;
     margin-right: auto;
