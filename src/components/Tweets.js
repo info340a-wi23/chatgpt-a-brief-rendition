@@ -14,10 +14,9 @@ function RenderTweet(props) {
               href="https://twitter.com/ChatGPTChef/status/1619644451714113536?ref_src=twsrc%5Etfw">January 29,
               2023</a>
           </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js"></script>
+          {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
           <p>Comment</p>
         </dd>          
-        {/* Does not display */}
         <dt>ChatGPT 2049</dt>
         <dd>
           <blockquote className="twitter-tweet">
@@ -29,7 +28,7 @@ function RenderTweet(props) {
               href="https://twitter.com/rowancheung/status/1619789758191788034?ref_src=twsrc%5Etfw">January 29,
               2023</a>
           </blockquote>
-          <script async src="https://platform.twitter.com/widgets.js"></script>
+          {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
           <p>Comment</p>
         </dd>
       </dl>
