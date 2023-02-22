@@ -11,7 +11,7 @@ import Footer from './Footer';
 // OTHER IMPORTS HERE
 
 export default function App(props) {
-
+    // TODO: React routing
     return(
         <div>
             <Menu />
@@ -19,6 +19,8 @@ export default function App(props) {
             <main>
                 <HomePage />
                 {/* <About /> */}
+                {/* <Discussion /> */}
+                {/* <Tweets /> */}
             </main>
 
             <Footer />
