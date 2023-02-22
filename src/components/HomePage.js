@@ -15,7 +15,7 @@ function MainContent() {
                 {/* <picture>
                 <source srcset="./img/chatgptsm.jpg" media="(max-width: 600px)">
                 <source srcset="./img/chatgptm.png" media="(max-width: 992px)"> */}
-                <img src="./img/chatgptlg.png" alt="ChatGPT Screenshot"/> 
+                <img src={require("./img/chatgptlg.png")} alt="ChatGPT Screenshot"/> 
                 {/* </picture> */}
             </div>
         </section>

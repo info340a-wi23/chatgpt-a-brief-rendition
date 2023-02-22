@@ -54,7 +54,7 @@ function CurrentDiscussion(props) {
                         <div className="authors">
                             <div className="username"><a href="">Username</a></div>
                             <div>Role</div>
-                            <img src="./img/User1.jpg" alt="a cat avatar"/>
+                            <img src={require("./img/User1.jpg")} alt="a cat avatar"/>
                             <div>Posts: <u>45</u></div>
                             <div>Points: <u>4586</u></div>
                         </div>
@@ -82,7 +82,7 @@ function CurrentDiscussion(props) {
                         <div className="authors">
                             <div className="username"><a href="">AnotherUser</a></div>
                             <div>Role</div>
-                            <img src="./img/User2.jpg" alt="another cat avatar"/>
+                            <img src={require("./img/User2.jpg")} alt="another cat avatar"/>
                             <div>Posts: <u>455</u></div>
                             <div>Points: <u>4586</u></div>
                         </div>
@@ -109,7 +109,7 @@ function CurrentDiscussion(props) {
                         <div className="authors">
                             <div className="username"><a href="">AnotherUser</a></div>
                             <div>Role</div>
-                            <img src="./img/User3.jpg" alt="another cat avatar"/>
+                            <img src={require("./img/User3.jpg")} alt="another cat avatar"/>
                             <div>Posts: <u>455</u></div>
                             <div>Points: <u>4586</u></div>
                         </div>
