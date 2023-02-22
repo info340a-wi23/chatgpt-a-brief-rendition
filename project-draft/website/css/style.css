@@ -118,6 +118,8 @@ main img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    height:30vw;
+    width: 45vw;
 }
 
 p.credit {
@@ -155,7 +157,7 @@ section.about-infrastructures {
     font-size: 1.35rem;
     text-align: center;
     background-color: #f68700;
-    width: 450px;
+    width: auto;
     height: 40px;
     line-height: 35px;
     color: white;
@@ -175,8 +177,8 @@ section.about-infrastructures {
 }
 
 .shrunk-img{
-    height:350px;
-    width:800px;
+    height:20vw;
+    width:50vw;
 
 }
 
