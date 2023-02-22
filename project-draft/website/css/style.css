@@ -276,6 +276,10 @@ section.navigate-area {
     text-decoration: none;
 }
 
+.content p {
+    margin: 0 0 10px;
+}
+
 /* Responsiveness rules */
 
 @media (min-width: 600px) {
