@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Routes, Route, Navigate, Link} from 'react-router-dom';
 
 import Menu from './Menu';
 import Header from './Header'
@@ -13,16 +14,30 @@ import Footer from './Footer';
 export default function App(props) {
     // TODO: React routing
     return(
-        <div>
+        // Old code without routing and menu
+        // <div>
+        //     <Menu />
+        //     <Header />
+        //     <main>
+        //         <HomePage />
+        //         {/* <About /> */}
+        //         {/* <Discussion /> */}
+        //         {/* <Tweets /> */}
+        //     </main>
+
+        //     <Footer />
+        // </div>
+        <div className='ChatGPTaBriefRendition'>
             <Menu />
             <Header />
-            <main>
-                <HomePage />
-                {/* <About /> */}
-                {/* <Discussion /> */}
-                {/* <Tweets /> */}
-            </main>
-
+            <Routes>
+                {/* Automatically sends to home page */}
+                <Route path='' element={<Navigate to='/home' /> } /> 
+                <Route path='/home' element={ <HomePage /> } />
+                <Route path='/about' element={ <About /> } />
+                <Route path='discussion' element={ <Discussion /> }/>
+                <Route path='tweets' element={ <Tweets /> }/>
+            </Routes>
             <Footer />
         </div>
     );
