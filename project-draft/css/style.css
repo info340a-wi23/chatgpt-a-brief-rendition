@@ -118,7 +118,7 @@ main img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height:30vw;
+    height: 30vw;
     width: 45vw;
 }
 
@@ -179,7 +179,6 @@ section.about-infrastructures {
 .shrunk-img{
     height:20vw;
     width:50vw;
-
 }
 
 /* general rules for head, body and footer */

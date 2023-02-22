@@ -61,8 +61,8 @@ nav {
     width: 100%;
     color: white;
     background-color: #f68700;
-    /* padding: .5rem; */
-    padding-bottom: 0.5rem;
+    padding: .5rem;
+    padding-bottom: 1rem;
     top: 0;
     left: 0;
     text-shadow: 1px 1px 2px black;
@@ -70,11 +70,11 @@ nav {
 
 nav ul {
     margin: 0;
-    padding: 0.5rem;
+    padding: 0 0 .5rem 0;
 }
 
 nav img {
-    padding-left: 3rem;
+    padding: 0 1rem 0 2.25rem;
     margin-top: .5rem;
 }
 
@@ -92,7 +92,7 @@ nav a {
 
 nav li a:hover, nav li a:active, nav li a:focus {
     color: rgb(168, 255, 158);
-    border-bottom: solid .5rem rgb(168, 255, 158);
+    border-bottom: solid .8rem rgb(168, 255, 158);
     font-weight: 1000;
 }
 
@@ -114,10 +114,12 @@ header p {
     font-size: 1.25rem;
 }
 
-main img {
+section.about-caring img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    height:30vw;
+    width: 45vw;
 }
 
 p.credit {
@@ -155,7 +157,7 @@ section.about-infrastructures {
     font-size: 1.35rem;
     text-align: center;
     background-color: #f68700;
-    width: 450px;
+    width: auto;
     height: 40px;
     line-height: 35px;
     color: white;
@@ -175,9 +177,9 @@ section.about-infrastructures {
 }
 
 .shrunk-img{
-    height:350px;
-    width:800px;
-
+    height:20vw;
+    width:50vw;
+    justify-content: center;
 }
 
 /* general rules for head, body and footer */
@@ -279,6 +281,10 @@ section.navigate-area {
     color: #FF0042;
     font-weight: bold;
     text-decoration: none;
+}
+
+.content p {
+    margin: 0 0 10px;
 }
 
 /* Responsiveness rules */
