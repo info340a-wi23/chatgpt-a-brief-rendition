@@ -29,7 +29,7 @@ function CurrentDiscussionPath(props) {
                 {/* <!--Navigation--> */}
                 <div className="navigate">
                 {/* Use prop to display this rather than a hard encode */}
-                <span><a href="">MyForum - Forums</a> >> <a href="">random subforum</a> >> <a href="">random topic</a></span>
+                <span><a href="">MyForum - Forums</a>  <a href="">random subforum</a>  <a href="">random topic</a></span>
                 </div>
             </div>
         </section>
@@ -71,7 +71,7 @@ function CurrentDiscussion(props) {
                 <div className="comment-area">
                     <form>
                         <div>
-                        <label for="comment_field">Comment:</label>
+                        <label htmlFor="comment_field">Comment:</label>
                         <textarea className="form-control" id="comment_field" name="comment"></textarea>
                         </div>
                         <input type="submit" value="submit"/>
@@ -98,7 +98,7 @@ function CurrentDiscussion(props) {
                 <div className="comment-area">
                     <form>
                         <div>
-                            <label for="reply_field">Reply:</label>
+                            <label htmlFor="reply_field">Reply:</label>
                             <textarea className="form-control" id="reply_field" name="reply"></textarea>
                         </div>
                         <input type="submit" value="submit"/>
@@ -125,7 +125,7 @@ function CurrentDiscussion(props) {
                 <div className="comment-area">
                     <form>
                         <div>
-                            <label for="reply_field_2">Reply:</label>
+                            <label htmlFor="reply_field_2">Reply:</label>
                             <textarea className="form-control" id="reply_field_2" name="reply"></textarea>
                         </div>
                         <input type="submit" value="submit"/>
@@ -159,9 +159,9 @@ function CurrentDiscussion(props) {
 
 const DEFAULT_USERS = [
     {userId: null, userName: null, userImg: '/img/null.png'}, //null user
-    {userId: "penguin", userName: "Penguin", userImg: '/img/Penguin.png'},
-    {userId: "parrot", userName: "Parrot", userImg: '/img/Parrot.png'},
-    {userId: "zebra", userName: "Zebra", userImg: '/img/Zebra.png'},
+    {userId: "penguin", userName: "Penguin", userImg: '/img/User1.jpg'},
+    {userId: "parrot", userName: "Parrot", userImg: '/img/User2.jpg'},
+    {userId: "zebra", userName: "Zebra", userImg: '/img/User3.jpg'},
    ]
    
    function HeaderBar(props) {
@@ -199,14 +199,14 @@ const DEFAULT_USERS = [
     const handleSubmit = (event) => {
     event.preventDefault();
     console.log("submitting", typedValue);
-    const userObj = { userId: "parrot", userName: "Parrot", userImg: "/img/Penguin.png" }
+    const userObj = { userId: "parrot", userName: "Parrot", userImg: "/img/User1.jpg" }
     props.addMessageCallback(userObj, typedValue, "general")
     setTypedValue(""); //empty the input!
     }
     return (
     <form className="my-2" onSubmit={handleSubmit}>
     <div className="input-group">
-    {<img src={currentUser.userImg} alt={currentUser.userName + " avatar"} />}
+    {/* {<img src={currentUser.userImg} alt={currentUser.userName + " avatar"} />} */}
     <textarea className="form-control" rows="2"
     placeholder="Type a new message"
     onChange={handleChange} value={typedValue}></textarea>

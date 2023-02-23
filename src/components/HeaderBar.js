@@ -148,14 +148,14 @@
 
 //Slide 29, User the callback to swap users
 import React from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
+import { Dropdown } from 'react-bootstrap';
 
 
 const DEFAULT_USERS = [
   { userId: null, userName: null, userImg: '/img/null.png' }, //null user
-  { userId: "penguin", userName: "Penguin", userImg: '/img/Penguin.png' },
-  { userId: "parrot", userName: "Parrot", userImg: '/img/Parrot.png' },
-  { userId: "zebra", userName: "Zebra", userImg: '/img/Zebra.png' },
+  { userId: "user1", userName: "User1", userImg: '/img/User1.jpg' },
+  { userId: "user2", userName: "User2", userImg: '/img/User2.jpg' },
+  { userId: "user3", userName: "User3", userImg: '/img/User3.jpg' },
 ]
 
 export function HeaderBar(props) {
@@ -198,7 +198,7 @@ export function HeaderBar(props) {
 
       <Dropdown>
         <Dropdown.Toggle variant="primary">
-          <img src={currentUser.userImg} alt={currentUser.userName + " avatar"} />
+          {/* <img src={currentUser.userImg} alt={currentUser.userName + " avatar"} /> */}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

@@ -230,12 +230,13 @@ footer p {
 
 footer p:last-of-type {
     padding-top: 8px;
+    padding-bottom: 2px;
 }
 
 .footer-info {
-    max-width: 960px;
-    margin-left: 5rem;
-    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: auto;
+    padding: 15px, 0;
 }
 
 /* Comment box rules */
@@ -292,6 +293,12 @@ section.navigate-area {
 @media (min-width: 600px) {
     nav a {
         font-size: 1em;
+    }
+
+    .footer-info {
+        max-width: 960px;
+        margin-left: 2rem;
+        padding: 1rem;
     }
 }
 
