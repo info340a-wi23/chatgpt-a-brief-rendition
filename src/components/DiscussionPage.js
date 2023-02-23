@@ -60,27 +60,32 @@ function RenderAllPost(props) {
 }
 
 function CreateDiscussionPost(props) {
-    const [typedValue, setTypedValue] = useState('');
+    const [topicValue, setTopic] = useState('');
+    const [postValue, setPost] = useState('');
+
 
     const currentUser = props.currentUser;
     const makePostCallback = props.makePostCallback;
 
     const handleChange = (event) => {
-        const inputValue = event.target.value;
-        setTypedValue(inputValue);
+        const [topic, post] = event.target.value;
+        setTopic(topic);
+        setPost(post);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        makePostCallback(currentUser);
-        setTypedValue('');
+        makePostCallback(topicValue, postValue);
+        setTopic('');
+        setPost('');
     }
 
     return(
         <form className='discussion-post-submit' onSubmit={handleSubmit}>
             {'Posting as: ' + currentUser.userName}
             {/* Remove p after add css and add a submit button? */}
-            <p><textarea rows='2' placeholder='Type a new post' onChange={handleChange}></textarea></p>
+            <p><textarea name='topic' rows='2' placeholder='Type a topic' onChange={handleChange}></textarea></p>
+            <p><textarea name='post' rows='2' placeholder='Type a new post' onChange={handleChange}></textarea></p>
             <button className='btn btn-secondary' type='submit'>
                 Submit
             </button>

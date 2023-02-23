@@ -74,7 +74,7 @@ export default function App(props) {
                 <Route path='' element={<Navigate to='/home' /> } /> 
                 <Route path='/home' element={ <HomePage /> } />
                 <Route path='/about' element={ <About /> } />
-                <Route path='/discussion' element={ <DiscussionPage currentUser={USERS[0]} /> }/>
+                <Route path='/discussion' element={ <DiscussionPage currentUser={USERS[1]} /> }/>
                 <Route path='/tweets' element={ <Tweets /> }/>
             </Routes>
             <Footer />
