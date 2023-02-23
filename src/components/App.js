@@ -6,6 +6,7 @@ import Header from './Header'
 import HomePage from './HomePage';
 import About from './About';
 import Discussion from './Discussion';
+import DiscussionPage from './DiscussionPage';
 import Tweets from './Tweets';
 import Footer from './Footer';
 import { HeaderBar } from './HeaderBar.js';
@@ -15,6 +16,7 @@ import { ComposeForm } from './ComposeForm';
 import CHAT_HISTORY from '../data/chat_log.json';
 
 // OTHER IMPORTS HERE
+import USERS from '../data/users.json';
 
 export default function App(props) {
     // TODO: React routing
@@ -72,7 +74,7 @@ export default function App(props) {
                 <Route path='' element={<Navigate to='/home' /> } /> 
                 <Route path='/home' element={ <HomePage /> } />
                 <Route path='/about' element={ <About /> } />
-                <Route path='/discussion' element={ <Discussion /> }/>
+                <Route path='/discussion' element={ <DiscussionPage currentUser={USERS[0]} /> }/>
                 <Route path='/tweets' element={ <Tweets /> }/>
             </Routes>
             <Footer />

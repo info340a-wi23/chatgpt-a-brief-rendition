@@ -1,0 +1,6 @@
+[
+    { "userId": null, "userName": "Annonymous", "userImg": "/img/null.png", "userRole": null, "numPosts": null, "totalPoints": null}, 
+    { "userId": "User1", "userName": "Ashley Williams", "userImg": "/img/User1.jpg", "userRole": "System Administrator", "numPosts": 45, "totalPoints": 4586},
+    { "userId": "User2", "userName": "Brandon Nguyen", "userImg": "/img/User2.jpg", "userRole": "Data Scientist", "numPosts": 450, "totalPoints": 1234},
+    { "userId": "User3", "userName": "Rachel Davis", "userImg": "/img/User3.jpg", "userRole": "Product Manager", "numPosts": 450, "totalPoints": 1234}  
+]
