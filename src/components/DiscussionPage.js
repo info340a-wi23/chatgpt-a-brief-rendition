@@ -15,7 +15,7 @@ function Search(props) {
                     <option value="Descriptions">Descriptions</option>
                     </select>
                     <input type="text" name="q" placeholder="Search ..."/>
-                    <button aria-label="Search"><i className="fa fa-search"></i></button>
+                    <button aria-label="Search"><i className="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </div>
         </section>
@@ -27,7 +27,6 @@ function RenderAllPost(props) {
     const currentPost = props.postList;
     
     const postList = currentPost.map((singlePost) => {
-        console.log(singlePost)
         const {userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post} = singlePost;
         return (
             <section className="post-area">
@@ -48,7 +47,13 @@ function RenderAllPost(props) {
                                 <div>Points: <u>{totalPoints}</u></div>
                             </div>
                             <div className="content">
-                                {post}
+                                <p>{post}</p>
+                                <div className='reply'>
+                                    <div ><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
+                                    <button>
+                                    <span className="material-symbols-outlined">reply</span> Reply
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -60,36 +65,38 @@ function RenderAllPost(props) {
 }
 
 function CreateDiscussionPost(props) {
-    const [topicValue, setTopic] = useState('');
-    const [postValue, setPost] = useState('');
-
+    const [input, setInput] = useState({});
 
     const currentUser = props.currentUser;
     const makePostCallback = props.makePostCallback;
 
     const handleChange = (event) => {
-        const [topic, post] = event.target.value;
-        setTopic(topic);
-        setPost(post);
+        const name = event.target.name;
+        const value = event.target.value;
+        setInput(values => ({...values, [name]: value}))
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        makePostCallback(topicValue, postValue);
-        setTopic('');
-        setPost('');
+        console.log(input)
+        makePostCallback(input.topic, input.post);
+        setInput({})
     }
 
     return(
-        <form className='discussion-post-submit' onSubmit={handleSubmit}>
-            {'Posting as: ' + currentUser.userName}
-            {/* Remove p after add css and add a submit button? */}
-            <p><textarea name='topic' rows='2' placeholder='Type a topic' onChange={handleChange}></textarea></p>
-            <p><textarea name='post' rows='2' placeholder='Type a new post' onChange={handleChange}></textarea></p>
-            <button className='btn btn-secondary' type='submit'>
-                Submit
-            </button>
-        </form>
+        <section className='post-area'>
+            <div className='container'>
+                <form className='discussion-post-submit' onSubmit={handleSubmit}>
+                    <h2>Create a new Post</h2>
+                    {'Posting as: ' + currentUser.userName}
+                    <div ><textarea className='container-fluid' name='topic' rows='1' placeholder='Type a topic' onChange={handleChange}></textarea></div>
+                    <div><textarea className='container-fluid' name='post' rows='5' placeholder='Type a new post' onChange={handleChange}></textarea></div>
+                    <button className='btn btn-secondary' type='submit'>
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </section>
     )
 }
 
@@ -116,7 +123,7 @@ export default function DiscussionPage(props) {
     return (
         <div>
             <Search />
-            <RenderAllPost postList={discussionPosts} />
+            <RenderAllPost postList={discussionPosts} key={currentUser.timestamp + currentUser.userName}/>
             <CreateDiscussionPost currentUser = {currentUser} makePostCallback = {createPost} />
         </div>
     )

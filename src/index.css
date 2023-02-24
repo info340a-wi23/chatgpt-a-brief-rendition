@@ -74,7 +74,7 @@ nav ul {
 }
 
 nav img {
-    padding: 0 1rem 0 2.25rem;
+    /* padding: 0 1rem 0 2.25rem; */
     margin-top: .5rem;
 }
 
@@ -92,7 +92,7 @@ nav a {
 
 nav li a:hover, nav li a:active, nav li a:focus {
     color: rgb(168, 255, 158);
-    border-bottom: solid .8rem rgb(168, 255, 158);
+    border-bottom: solid .5rem rgb(168, 255, 158);
     font-weight: 1000;
 }
 
@@ -100,7 +100,7 @@ nav li a:hover, nav li a:active, nav li a:focus {
 
 header {
     color: white;
-    padding-top: 6rem;
+    padding-top: 5rem;
     padding-bottom: 1rem;
     background-image: url('./components/img/background-cover.jpg');
     background-size: cover;
@@ -210,6 +210,10 @@ section.about-infrastructures {
 .body .authors img {
     max-width: 50px;
     max-height: 80px;
+}
+
+.body .content p {
+    padding: 5px;
 }
 
 footer {

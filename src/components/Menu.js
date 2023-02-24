@@ -6,7 +6,7 @@ export default function Menu(props) {
     // Fix href
     // Icon
     return (
-        <nav>
+        <nav className='navbar-static-top'>
             <ul className="inline-menu">
                 <li><img src={require("./img/favicon.png")} alt="A picture of the website logo."/></li>
                 <li><Link to='home'><span className="material-symbols-outlined">cottage</span></Link></li>
