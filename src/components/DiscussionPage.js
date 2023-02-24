@@ -29,10 +29,10 @@ function RenderAllPost(props) {
     const postList = currentPost.map((singlePost) => {
         const {userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post} = singlePost;
         return (
-            <section className="post-area">
+            <section className="post-area" key={timestamp + userId}>
                 <div className="container">
                     {/* <!--Topic Section--> */}
-                    <div>
+                    {/* <div> */}
                         {/* <!--Original thread--> */}
                         <div className="head">
                             <div className="authors">Author</div>
@@ -56,7 +56,7 @@ function RenderAllPost(props) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </section>
         )
@@ -123,7 +123,7 @@ export default function DiscussionPage(props) {
     return (
         <div>
             <Search />
-            <RenderAllPost postList={discussionPosts} key={currentUser.timestamp + currentUser.userName}/>
+            <RenderAllPost postList={discussionPosts} />
             <CreateDiscussionPost currentUser = {currentUser} makePostCallback = {createPost} />
         </div>
     )
