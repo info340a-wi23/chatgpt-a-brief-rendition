@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+.ChatGPTaBriefRendition {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+body {
+    font-size: 1.25rem;
+}
+
+main {
+    text-align: center;
+    font-family: "Kaushan Script", fantasy;
+    margin-top: 23vh;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2em;
+}
+
+
+.navbar {
+    /* position: fixed; */
+    width: 100%;
+    color: white;
+    background-color: #f68700;
+    /* padding: .5rem;
+    padding-bottom: 1rem; */
+    top: 0;
+    left: 0;
+    text-shadow: 1px 1px 2px black;
+    display: flex;
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+/* Button */
+.dropdown .navbar-toggler{
+    color: white;
+    font-size: 1.5rem;
+    /* margin-right: .5em; */
+    left: 0;
+    display: flex;
+}
+
+/* Site logo */
+.dropdown .site-logo {
+    height: 2em;
+    object-fit: cover;
+    padding: 0;
+    align-items: center;
+    display: flex;
+}
+
+#dropdown-menu {
+    display: flex;
+}
+
+nav button .dropdown-button {
+    color: #f68700;
+}
+
+/* Header */
+
+header {
+    color: white;
+    /* padding-top: 1rem;
+    padding-bottom: 1rem; */
+    padding: 1rem 0;
+    background-image: url('./components/img/background-cover.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #0084af;
+    text-shadow: 1.5px 1.5px 2.5px black;
+}
+
+header p {
+    font-style: italic;
+    font-size: 1.25rem;
+}
+
+footer {
+    color: white;
+    background-color: #f68700;
+    text-shadow: 1px 1px 2px black;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer p {
+    margin: 5px 10px;
+    line-height: 1;
+}
+
+footer p:last-of-type {
+    padding-top: 4px;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+/* Homepage */
+
+section.main-content dt {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: rem;
+}
+
+section.main-content dd {
+    margin: 0;
+}
+
+section.main-content img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 15px;
+}
+
