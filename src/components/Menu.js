@@ -23,39 +23,30 @@ export default function Menu(props) {
                         {isOpen && (
                             <ul className='hamburger-menu-list'>
                                 <li className='hamburger-menu-item'>
-                                    <NavLink to='home'><span className='material-symbols-outlined'>cottage</span></NavLink>
+                                    <NavLink to='home' className='link'><span className='material-symbols-outlined'>cottage</span></NavLink>
                                 </li>
                                 <li className='hamburger-menu-item'>
-                                    <NavLink to='about'>About</NavLink>                           
+                                    <NavLink to='about' className='link'>About</NavLink>                           
                                 </li>
                                 <li className='hamburger-menu-item'>
-                                    <NavLink to='discussion'>Discussion</NavLink>
+                                    <NavLink to='discussion' className='link'>Discussion</NavLink>
                                 </li>
                                 <li className='hamburger-menu-item'>
-                                    <NavLink to='tweets'>Tweets</NavLink>
+                                    <NavLink to='tweets' className='link'>Tweets</NavLink>
                                 </li>
                             </ul>
                         )}
                     </li>
 
-                    <li><NavLink to='home'><span className='material-symbols-outlined'>cottage</span></NavLink></li>
-                    <li><NavLink to='about'>About</NavLink></li>
-                    <li><NavLink to='discussion'>Discussion</NavLink></li>
-                    <li><NavLink to='tweets'>Tweets</NavLink></li>
+                    <li><NavLink to='home' className='link'><span className='material-symbols-outlined'>cottage</span></NavLink></li>
+                    <li><NavLink to='about' className='link'>About</NavLink></li>
+                    <li><NavLink to='discussion' className='link'>Discussion</NavLink></li>
+                    <li><NavLink to='tweets' className='link'>Tweets</NavLink></li>
 
                 </ul>
             </div>
 
-            {/* <div className='dropdown'>
-                <button type='button' className='navbar-toggler' data-toggle='dropdown'><i className="fa fa-bars" aria-label="menu"></i></button>
-                <div className='dropdown-menu'>
-                    <NavLink to='home' className='dropdown-item'><span className="material-symbols-outlined active">cottage</span></NavLink>
-                    <NavLink to='about' className='dropdown-item'>About</NavLink>
-                    <NavLink to='discussion' className='dropdown-item'>Discussion</NavLink>
-                    <NavLink to='tweets' className='dropdown-item'>Tweets</NavLink>
-                </div>
-                <img className ='site-logo' src="./img/favicon.png" alt="A picture of the website logo."/>
-            </div> */}
+            {}
         </nav>
     )
 }
