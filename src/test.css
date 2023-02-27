@@ -1,3 +1,5 @@
+/* General Rules */
+
 * {
     box-sizing: border-box;
     font-family: "Nunito", Arial, Helvetica, sans-serif;
@@ -28,7 +30,7 @@ h2 {
     padding: 2rem 0 .25rem 0;
 }
 
-
+ /* Navbar Rules */
 .navbar {
     width: 100%;
     color: white;
@@ -47,8 +49,6 @@ h2 {
     display: flex;
     align-items: center;
 }
-
-
 
 .navbar ul {
     margin: 0;
@@ -85,10 +85,6 @@ h2 {
     text-decoration: none;
 }
 
-
-
-/* Button */
-
 /* Site logo */
 .dropdown .site-logo {
     height: 2em;
@@ -98,12 +94,10 @@ h2 {
     display: flex;
 }
 
-/* Header */
+/* Header and Footer Rules*/
 
 header {
     color: white;
-    /* padding-top: 1rem;
-    padding-bottom: 1rem; */
     padding: 1rem 0;
     background-image: url('./components/img/background-cover.jpg');
     background-size: cover;
@@ -147,6 +141,49 @@ section.main-content img {
     border-radius: 15px;
 }
 
+/* About page*/
+section.about-caring div.container {
+    font-weight: normal;
+}
+
+section.about-caring img{
+    display:block;
+    margin: 0 auto;
+    height: 45%;
+    width: 45%;
+}
+
+section.about-action img {
+    display:block;
+    margin: 0 auto;
+    height: 75%;
+    width: 75%;
+}
+
+.column-button {
+    font-size: 1.35rem;
+    text-align: center;
+    background-color: #f68700;
+    width: auto;
+    height: 40px;
+    line-height: 35px;
+    color: white;
+    margin: 20px auto;
+    box-shadow: 4px 4px rgba(44, 44, 44, 0.2), -4px 4px rgba(44, 44, 44, 0.2);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+/* Discussion Page */
+section.post-area img{
+    display:block;
+    height: 15%;
+    width: 15%;
+}
+
+
 @media (min-width: 768px) {
     .navbar img{
         display: inline;
@@ -158,17 +195,51 @@ section.main-content img {
     .dropdown li:nth-child(n+3){
         display: inline;
     }
-    button, .hamburger-menu-list{
+    nav button, .hamburger-menu-list{
         display:none;
+    }
+
+    .button {
+        font-size: 1.35rem;
+        width: 700px;
+        height: 50px;
+        line-height: 45px;
     }
 
     .link {
         font-size: 1.25rem;
+    }
+
+    section.main-content img {
+        max-width: 75%;
+        border-radius: 15px;
+        margin: 0 10vw;
     }
 }
 
 @media (min-width: 1200px) {
     .link {
         font-size: 1.75rem;
+    }
+
+    .button {
+        font-size: 1.50rem;
+        width: 900px;
+        height: 60px;
+        line-height: 55px;
+    }
+
+    section.about-caring img{
+        display:block;
+        margin: 0 auto;
+        height: 25%;
+        width: 25%;
+    }
+    
+    section.about-action img {
+        display:block;
+        margin: 0 auto;
+        height: 55%;
+        width: 55%;
     }
 }

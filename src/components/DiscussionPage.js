@@ -10,11 +10,11 @@ function Search(props) {
                 <h2>Discussion</h2>
                 <div className="search-box">
                     <select name="selection">
-                    <option value="Everything">Everything</option>
-                    <option value="Titles">Titles</option>
-                    <option value="Descriptions">Descriptions</option>
+                        <option value="Everything">Everything</option>
+                        <option value="Titles">Titles</option>
+                        <option value="Descriptions">Descriptions</option>
                     </select>
-                    <input type="text" name="q" placeholder="Search ..."/>
+                    <input type="text" name="q" placeholder="Search ..." />
                     <button aria-label="Search"><i className="fa fa-search" aria-hidden="true"></i></button>
                 </div>
             </div>
@@ -25,37 +25,37 @@ function Search(props) {
 
 function RenderAllPost(props) {
     const currentPost = props.postList;
-    
+
     const postList = currentPost.map((singlePost) => {
-        const {userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post} = singlePost;
+        const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post } = singlePost;
         return (
             <section className="post-area" key={timestamp + userId}>
                 <div className="container">
                     {/* <!--Topic Section--> */}
                     {/* <div> */}
-                        {/* <!--Original thread--> */}
-                        <div className="head">
-                            <div className="authors">Author</div>
-                            <div className="content">Topic: {topic} (Read 1325 Times)</div>
+                    {/* <!--Original thread--> */}
+                    <div className="head">
+                        <div className="authors">Author</div>
+                        <div className="content">Topic: {topic} (Read 1325 Times)</div>
+                    </div>
+                    <div className="body">
+                        <div className="authors">
+                            <div className="username"><a href="">{userName}</a></div>
+                            <div>Role: {userRole}</div>
+                            <img src={userImg} alt={userName + ' avatar'} />
+                            <div>Posts: <u>{numPosts}</u></div>
+                            <div>Points: <u>{totalPoints}</u></div>
                         </div>
-                        <div className="body">
-                            <div className="authors">
-                                <div className="username"><a href="">{userName}</a></div>
-                                <div>Role: {userRole}</div>
-                                <img src={userImg} alt={userName + ' avatar'}/>
-                                <div>Posts: <u>{numPosts}</u></div>
-                                <div>Points: <u>{totalPoints}</u></div>
-                            </div>
-                            <div className="content">
-                                <p>{post}</p>
-                                <div className='reply'>
-                                    <div ><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
-                                    <button>
+                        <div className="content">
+                            <p>{post}</p>
+                            <div className='reply'>
+                                <div ><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
+                                <button>
                                     <span className="material-symbols-outlined">reply</span> Reply
-                                    </button>
-                                </div>
+                                </button>
                             </div>
                         </div>
+                    </div>
                     {/* </div> */}
                 </div>
             </section>
@@ -73,7 +73,7 @@ function CreateDiscussionPost(props) {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInput(values => ({...values, [name]: value}))
+        setInput(values => ({ ...values, [name]: value }))
     }
 
     const handleSubmit = (event) => {
@@ -83,7 +83,7 @@ function CreateDiscussionPost(props) {
         setInput({})
     }
 
-    return(
+    return (
         <section className='post-area'>
             <div className='container'>
                 <form className='discussion-post-submit' onSubmit={handleSubmit}>
@@ -103,7 +103,7 @@ function CreateDiscussionPost(props) {
 export default function DiscussionPage(props) {
     const [discussionPosts, setDiscussionPosts] = useState(DISCUSSION_HISTORY);
     const currentUser = props.currentUser;
-    
+
     const createPost = (topic, userText) => {
         const userObj = currentUser;
         const newPost = {
@@ -115,7 +115,7 @@ export default function DiscussionPage(props) {
             "topic": topic,
             "post": userText
         }
-        
+
         const updateDiscussion = [...discussionPosts, newPost];
         setDiscussionPosts(updateDiscussion);
     }
@@ -124,7 +124,7 @@ export default function DiscussionPage(props) {
         <div>
             <Search />
             <RenderAllPost postList={discussionPosts} />
-            <CreateDiscussionPost currentUser = {currentUser} makePostCallback = {createPost} />
+            <CreateDiscussionPost currentUser={currentUser} makePostCallback={createPost} />
         </div>
     )
 }
