@@ -35,12 +35,11 @@ function RenderAllPost(props) {
                     {/* <div> */}
                     {/* <!--Original thread--> */}
                     <div className="head">
-                        <div className="authors">Author</div>
                         <div className="content">Topic: {topic} (Read 1325 Times)</div>
                     </div>
                     <div className="body">
                         <div className="authors">
-                            <div className="username"><a href="">{userName}</a></div>
+                            <div className="username">Author: <a href="">{userName}</a></div>
                             <div>Role: {userRole}</div>
                             <img src={userImg} alt={userName + ' avatar'} />
                             <div>Posts: <u>{numPosts}</u></div>
@@ -85,7 +84,7 @@ function CreateDiscussionPost(props) {
 
     return (
         <section className='post-area'>
-            <div className='container'>
+            <div className='container-submit'>
                 <form className='discussion-post-submit' onSubmit={handleSubmit}>
                     <h2>Create a new Post</h2>
                     {'Posting as: ' + currentUser.userName}

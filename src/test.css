@@ -177,12 +177,65 @@ section.about-action img {
 }
 
 /* Discussion Page */
+section.search-box-area {
+    background-color: #f68700;
+    color: white;
+    padding-bottom: 30px;
+}
+
+section.search-box-area select {
+    height: 30px;
+    background-color: rgb(229, 229, 229);
+}
+
 section.post-area img{
     display:block;
     height: 15%;
     width: 15%;
 }
 
+div.head {
+    margin-top: 25px;
+}
+
+div.reply button{
+    margin-bottom: 50px;
+}
+
+div.body div.authors {
+    font-size: 20px;
+    
+}
+
+section.post-area div.container {
+    background-color:#f68700;
+    outline-style: solid;
+    outline-width: 2px;
+}
+
+ section.post-area div.content p {
+    background-color: #ffc379;
+    outline-style: solid;
+    outline-width: 1px;
+    margin-top: 20px;
+}
+
+div.head div.content:first-of-type {
+    background-color: rgb(168, 255, 158);
+    outline-style: solid;
+    outline-width: 1px;
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+div.container-submit {
+    margin-top: 25px;
+    background-color: rgb(168, 255, 158);
+    padding: 0 25px 25px 25px;
+    outline-style: solid;
+    outline-width: 2px;
+}
 
 @media (min-width: 768px) {
     .navbar img{
@@ -241,5 +294,9 @@ section.post-area img{
         margin: 0 auto;
         height: 55%;
         width: 55%;
+    }
+
+    div.head {
+        margin-top: 70px;
     }
 }
