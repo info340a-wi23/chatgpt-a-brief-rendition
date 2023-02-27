@@ -42,6 +42,10 @@ h2 {
     display: flex;
 }
 
+.navbar img {
+    display: none;
+}
+  
 .dropdown {
     display: flex;
     align-items: center;
@@ -132,3 +136,19 @@ section.main-content img {
     border-radius: 15px;
 }
 
+@media (min-width: 768px) {
+    .navbar img{
+        display: block;
+    }
+    .navbar li {
+        display: inline;
+        margin: 0 1rem;
+    }
+    #hamburger-menu{
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
