@@ -25,7 +25,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    margin-top: 2em;
+    padding: 2rem 0 .25rem 0;
 }
 
 
@@ -89,13 +89,6 @@ h2 {
 
 /* Button */
 
-.navigation .navbar-toggler {
-    color: white;
-    font-size: 1.5rem;
-    margin-left: 1em;
-    display: flex;
-}
-
 /* Site logo */
 .dropdown .site-logo {
     height: 2em;
@@ -103,14 +96,6 @@ h2 {
     padding: 0;
     align-items: center;
     display: flex;
-}
-
-#dropdown-menu {
-    display: flex;
-}
-
-nav button .dropdown-button {
-    color: #f68700;
 }
 
 /* Header */
@@ -124,8 +109,7 @@ header {
     background-size: cover;
     background-position: center;
     background-color: #0084af;
-    /* Use this text shadow for PC View
-    text-shadow: 1.5px 1.5px 2.5px black; */
+    text-shadow: 3px 3px 4px black;
 }
 
 header p {
@@ -156,16 +140,6 @@ footer p:last-of-type {
 }
 
 /* Homepage */
-
-section.main-content dt {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-top: rem;
-}
-
-section.main-content dd {
-    margin: 0;
-}
 
 section.main-content img {
     height: auto;
