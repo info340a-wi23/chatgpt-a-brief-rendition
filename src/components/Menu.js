@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Menu(props) {
     const [isOpen, openIt] = useState(false);
@@ -10,7 +14,7 @@ export default function Menu(props) {
 
     return (
         <nav className='main-nav navbar'>
-            <div className='dropdown'>
+            <div className="dropdown">
                 <ul>
                     <li><img src='./img/favicon.png' alt='A picture of the website logo.'/></li>
 
@@ -41,6 +45,17 @@ export default function Menu(props) {
 
                 </ul>
             </div>
+
+            {/* <div className='dropdown'>
+                <button type='button' className='navbar-toggler' data-toggle='dropdown'><i className="fa fa-bars" aria-label="menu"></i></button>
+                <div className='dropdown-menu'>
+                    <NavLink to='home' className='dropdown-item'><span className="material-symbols-outlined active">cottage</span></NavLink>
+                    <NavLink to='about' className='dropdown-item'>About</NavLink>
+                    <NavLink to='discussion' className='dropdown-item'>Discussion</NavLink>
+                    <NavLink to='tweets' className='dropdown-item'>Tweets</NavLink>
+                </div>
+                <img className ='site-logo' src="./img/favicon.png" alt="A picture of the website logo."/>
+            </div> */}
         </nav>
     )
 }

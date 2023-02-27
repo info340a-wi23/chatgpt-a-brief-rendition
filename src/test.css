@@ -52,11 +52,11 @@ h2 {
 }
 
 /* Button */
-.dropdown .navbar-toggler{
+
+.navigation .navbar-toggler {
     color: white;
     font-size: 1.5rem;
-    /* margin-right: .5em; */
-    left: 0;
+    margin-left: 1em;
     display: flex;
 }
 
@@ -88,7 +88,8 @@ header {
     background-size: cover;
     background-position: center;
     background-color: #0084af;
-    text-shadow: 1.5px 1.5px 2.5px black;
+    /* Use this text shadow for PC View
+    text-shadow: 1.5px 1.5px 2.5px black; */
 }
 
 header p {
