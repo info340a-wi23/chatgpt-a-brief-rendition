@@ -1,112 +1,109 @@
-/* General rules for HTML basics*/
+/* General Rules */
+
 * {
     box-sizing: border-box;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
 }
 
+.ChatGPTaBriefRendition {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
 body {
-    font-family: "Nunito Sans", Arial, sans-serif;
     font-size: 1.25rem;
 }
 
-h1, h2 {
-    font-family: "Raleway", Helvetica, sans-serif;
-    font-weight: 300;
-    margin-top: 0;
-    margin-bottom: .5rem;
+main {
+    text-align: center;
+    font-family: "Kaushan Script", fantasy;
+    margin-top: 23vh;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 
 h2 {
     font-size: 2rem;
+    padding: 2rem 0 .25rem 0;
 }
 
-span.material-icons {
-    position: relative;
-    top: 5px;
-}
-
-.container {
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-}
-
-p, dl {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-/*  Saving this for the hamburger menu we will implement when we learn react and JS.
-ul#inline-menu{
-    display: none;
-}
-
-div#hamburger-menu{
-    display: block;
-
-
-
-div#tabs {
-    display: none;
-}
-} */
-
-/* Navigation bar rules */
-nav {
-    position: fixed;
+ /* Navbar Rules */
+.navbar {
     width: 100%;
     color: white;
     background-color: #f68700;
-    /* padding: .5rem;
-    padding-bottom: 1rem; */
     top: 0;
     left: 0;
     text-shadow: 1px 1px 2px black;
+    display: flex;
 }
 
-nav ul {
+.navbar img {
+    display: none;
+}
+  
+.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul {
     margin: 0;
-    padding: 0 0 .5rem 0;
+    padding: 0;
 }
 
-nav img {
-    /* padding: 0 1rem 0 2.25rem; */
-    margin-top: .5rem;
-}
-
-nav li {
+.navbar li {
     display: inline;
-    margin: 0 1rem;
-}
-
-nav a {
+    margin: 0 0 0 1rem;
     color: white;
     font-size: .8em;
     margin-right: .5em;
     text-decoration: none;
 }
 
-nav li a:hover, nav li a:active, nav li a:focus {
+.dropdown li:nth-child(n+3) {
+    display: none;
+}
+
+.hamburger-menu-list li:nth-child(n){
+    display: inline;
+}
+
+.link {
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.link:hover, .link:active, .link:focus {
     color: rgb(168, 255, 158);
     border-bottom: solid .5rem rgb(168, 255, 158);
     font-weight: 1000;
+    text-decoration: none;
 }
 
-/* Header, main and section rules */
+/* Site logo */
+.dropdown .site-logo {
+    height: 2em;
+    object-fit: cover;
+    padding: 0;
+    align-items: center;
+    display: flex;
+}
+
+/* Header and Footer Rules*/
 
 header {
     color: white;
-    padding-top: 5rem;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
     background-image: url('./components/img/background-cover.jpg');
     background-size: cover;
     background-position: center;
     background-color: #0084af;
-    text-shadow: 1.5px 1.5px 2.5px black;
+    text-shadow: 3px 3px 4px black;
 }
 
 header p {
@@ -114,28 +111,29 @@ header p {
     font-size: 1.25rem;
 }
 
-section.about-caring img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height:30vw;
-    width: 45vw;
+footer {
+    color: white;
+    background-color: #f68700;
+    text-shadow: 1px 1px 2px black;
 }
 
-p.credit {
-    font-size: 16px;
-    text-align: center;
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
-section.main-content dt {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin-top: 1rem;
+footer p {
+    margin: 5px 10px;
+    line-height: 1;
 }
 
-section.main-content dd {
-    margin: 0;
+footer p:last-of-type {
+    padding-top: 4px;
+    padding-bottom: 5px;
+    font-size: 12px;
 }
+
+/* Homepage */
 
 section.main-content img {
     height: auto;
@@ -143,17 +141,26 @@ section.main-content img {
     border-radius: 15px;
 }
 
-section {
-    background-color: #ffeee1;
-    line-height: 1.5;
+/* About page*/
+section.about-caring div.container {
+    font-weight: normal;
 }
 
-section.about-infrastructures {
-    background-image: linear-gradient(rgb(168, 255, 158), rgb(159, 239, 255));
-    line-height: 1.5;
+section.about-caring img{
+    display:block;
+    margin: 0 auto;
+    height: 45%;
+    width: 45%;
 }
 
-.button {
+section.about-action img {
+    display:block;
+    margin: 0 auto;
+    height: 75%;
+    width: 75%;
+}
+
+.column-button {
     font-size: 1.35rem;
     text-align: center;
     background-color: #f68700;
@@ -169,152 +176,81 @@ section.about-infrastructures {
     border-width: 2px;
 }
 
-.search-box {
-    margin-top: 20px;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-}
-
-.shrunk-img{
-    height:20vw;
-    width:50vw;
-    justify-content: center;
-}
-
-/* general rules for head, body and footer */
-
-.head {
-    display: flex;
-    background-color: #c3bfbc;
-    padding: 5px;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.authors {
-    flex: 20%;
-}
-
-.content {
-    flex: 80%;
-}
-
-.body {
-    display: flex;
-    background-image: linear-gradient(rgb(168, 255, 158), rgb(159, 239, 255));
-    padding: 10px;
-    margin-top: 5px;
-}
-
-.body .authors img {
-    max-width: 50px;
-    max-height: 80px;
-}
-
-.body .content p {
-    padding: 5px;
-}
-
-footer {
-    color: white;
+/* Discussion Page */
+section.search-box-area {
     background-color: #f68700;
-    text-shadow: 1px 1px 2px black;
-}
-
-footer a {
     color: white;
-    text-decoration: none;
+    padding-bottom: 30px;
 }
 
-footer p {
-    margin: 0;
-    line-height: 1.25;
+section.search-box-area select {
+    height: 30px;
+    background-color: rgb(229, 229, 229);
 }
 
-footer p:last-of-type {
-    padding-top: 8px;
-    padding-bottom: 2px;
+section.post-area img{
+    display:block;
+    height: 15%;
+    width: 15%;
 }
 
-.footer-info {
-    margin-left: 1rem;
-    margin-right: auto;
-    padding: 15px, 0;
+div.head {
+    margin-top: 25px;
 }
 
-/* Comment box rules */
-.comment-area {
+div.reply button{
     margin-bottom: 50px;
 }
 
-.comment-area textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    margin-block: 10px;
+div.body div.authors {
+    font-size: 20px;
+    
 }
 
-section.search-box-area, section.post-area {
-    background-color: #ffeee1;
-    line-height: 1.5;
+section.post-area div.container {
+    background-color:#f68700;
+    outline-style: solid;
+    outline-width: 2px;
 }
 
-section.navigate-area {
-    background-color: #f68700;
-    line-height: 1.5;
+ section.post-area div.content p {
+    background-color: #ffc379;
+    outline-style: solid;
+    outline-width: 1px;
+    margin-top: 20px;
 }
 
-.navigate {
-    margin-block: 20px;
-    font-weight: lighter;
-    font-size: 24px;
+div.head div.content:first-of-type {
+    background-color: rgb(168, 255, 158);
+    outline-style: solid;
+    outline-width: 1px;
+    text-align: center;
+    font-size: 25px;
+    
 }
 
-.navigate a {
-    color: white;
-    font-weight: bolder;
-    text-decoration: none;
+div.container-submit {
+    margin-top: 25px;
+    background-color: rgb(168, 255, 158);
+    padding: 0 25px 25px 25px;
+    outline-style: solid;
+    outline-width: 2px;
 }
 
-.navigate a:hover {
-    color: #FF0042;
-    font-weight: bold;
-}
-
-.username a {
-    color: #FF0042;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.content p {
-    margin: 0 0 10px;
-}
-
-/* Responsiveness rules */
-
-@media (min-width: 600px) {
-    nav a {
-        font-size: 1em;
+@media (min-width: 768px) {
+    .navbar img{
+        display: inline;
     }
-
-    .footer-info {
-        max-width: 960px;
-        margin-left: 2rem;
-        padding: 1rem;
+    .navbar li {
+        display: inline;
+        margin: 0 1rem;
     }
-}
-
-@media (min-width:800px) {
-
-    /* ul#inline-menu{ Saving this for when we learn JS and react for a hamburger menu
-        display:inline-block;
+    .dropdown li:nth-child(n+3){
+        display: inline;
     }
-
-    div#hamburger-menu{
+    nav button, .hamburger-menu-list{
         display:none;
-    } */
+    }
 
     .button {
         font-size: 1.35rem;
@@ -323,20 +259,20 @@ section.navigate-area {
         line-height: 45px;
     }
 
-    .row {
-        display: flex;
+    .link {
+        font-size: 1.25rem;
     }
 
-    .column {
-        flex-grow: 1;
+    section.main-content img {
+        max-width: 75%;
+        border-radius: 15px;
+        margin: 0 10vw;
     }
-
 }
 
-@media (min-width: 992px) {
-
-    nav a {
-        font-size: 1.25em;
+@media (min-width: 1200px) {
+    .link {
+        font-size: 1.75rem;
     }
 
     .button {
@@ -346,4 +282,21 @@ section.navigate-area {
         line-height: 55px;
     }
 
+    section.about-caring img{
+        display:block;
+        margin: 0 auto;
+        height: 25%;
+        width: 25%;
+    }
+    
+    section.about-action img {
+        display:block;
+        margin: 0 auto;
+        height: 55%;
+        width: 55%;
+    }
+
+    div.head {
+        margin-top: 70px;
+    }
 }
