@@ -35,7 +35,7 @@ function RenderAllPost(props) {
                     {/* <div> */}
                     {/* <!--Original thread--> */}
                     <div className="head">
-                        <div className="content">Topic: {topic} (Read 1325 Times)</div>
+                        <div className="content">Topic: {topic}</div>
                     </div>
                     <div className="body">
                         <div className="authors">

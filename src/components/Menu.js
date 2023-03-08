@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,6 +12,12 @@ export default function Menu(props) {
     const openOrClose = () => {
         openIt(!isOpen);
     };
+
+    const currentUser = props.currentUser;
+
+    const handleSignOut = (event) => {
+        signOut(getAuth())
+    }
 
     return (
         <nav className='main-nav navbar'>
@@ -34,6 +41,25 @@ export default function Menu(props) {
                                 <li className='hamburger-menu-item'>
                                     <NavLink to='tweets' className='link'>Tweets</NavLink>
                                 </li>
+                                {currentUser.userId && 
+                                    <>
+                                        <li>
+                                            <NavLink to="/profile" className="link">
+                                                Profile
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <button className="btn btn-secondary ms-2" onClick={handleSignOut}>Sign Out</button>
+                                        </li>
+                                    </>
+                                }
+                                {!currentUser.userId &&
+                                    <li>
+                                        <NavLink className="link" to="/signin">
+                                            Sign In
+                                        </NavLink>
+                                    </li>
+                                }
                             </ul>
                         )}
                     </li>
@@ -42,6 +68,26 @@ export default function Menu(props) {
                     <li><NavLink to='about' className='link'>About</NavLink></li>
                     <li><NavLink to='discussion' className='link'>Discussion</NavLink></li>
                     <li><NavLink to='tweets' className='link'>Tweets</NavLink></li>
+
+                    {currentUser.userId && 
+                        <>
+                            <li>
+                                <NavLink to="/profile" className="link">
+                                    Profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <button className="btn btn-secondary ms-2" onClick={handleSignOut}>Sign Out</button>
+                            </li>
+                        </>
+                    }
+                    {!currentUser.userId &&
+                        <li>
+                            <NavLink className="link" to="/signin">
+                                Sign In
+                            </NavLink>
+                        </li>
+                    }
 
                 </ul>
             </div>

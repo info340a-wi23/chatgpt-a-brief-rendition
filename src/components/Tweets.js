@@ -3,10 +3,10 @@ import React from 'react';
 import { getDatabase, ref } from 'firebase/database';
 
 //get a reference to the database service
-const db = getDatabase();
+// const db = getDatabase();
 
 //get reference to the "text" property in the database
-const textTweet = ref(db, "text");
+// const textTweet = ref(db, "text");
 
 
 function RenderTweet(props) {
