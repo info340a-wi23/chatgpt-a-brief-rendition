@@ -55,7 +55,8 @@ function FolderCard(props) {
   //return the html elements with interaction/conditional elements
   return (
     <div className='tweetCard'>
-
+      <img src='img/folder.png' alt='Image of a folder.'/>
+      <p className='tweetCard-text'>{props.folderName}</p>
     </div>
   )
 }
@@ -76,8 +77,8 @@ function FolderList(props) {
 function CreateFolder(props) {
 
   return (
-    <div className='plus'>
-
+    <div className='addFolder'>
+        <button>+</button> 
     </div>
   )
 }
