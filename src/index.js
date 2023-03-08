@@ -5,6 +5,7 @@ import './index.css';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TWEETS from './data/tweets.json'; //import our tweets
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -28,6 +29,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
     <BrowserRouter>
+      <App tweets={TWEETS} /> 
       <App />
     </BrowserRouter>
   // </React.StrictMode>
