@@ -65,7 +65,7 @@ export default function App(props) {
                 <Route path='/about' element={ <About /> } />
                 <Route path='/tweets' element={ <Tweets /> }/>
                 <Route path='/signin' element={ <SignInPage currentUser={currentUser} loginCallback={loginUser}/>} />
-
+                <Route path='*' element={ <ErrorPage />} />
                 {/* Protected */}
                 <Route element={<ProtectedPage currentUser={currentUser} />}>
                   <Route path='/discussion' element={ <DiscussionPage currentUser={currentUser} /> }/>
