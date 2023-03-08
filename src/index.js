@@ -30,7 +30,6 @@ root.render(
   // <React.StrictMode>
     <BrowserRouter>
       <App tweets={TWEETS} /> 
-      <App />
     </BrowserRouter>
   // </React.StrictMode>
 );

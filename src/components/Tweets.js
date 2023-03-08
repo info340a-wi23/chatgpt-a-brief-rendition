@@ -41,8 +41,26 @@ function RenderTweet(props) {
           <p>Comment</p>
         </dd>
       </dl>
+
+
+
     );
 }
+
+//a component like PetCard
+function FolderCard(props) {
+  //create the interaction and conditional elements
+
+
+  //return the html elements with interaction/conditional elements
+  return (
+    <div>
+
+    </div>
+  )
+}
+
+
 
 export default function Tweets(props) {
   return (
