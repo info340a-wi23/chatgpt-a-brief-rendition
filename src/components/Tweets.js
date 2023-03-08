@@ -54,13 +54,33 @@ function FolderCard(props) {
 
   //return the html elements with interaction/conditional elements
   return (
-    <div>
+    <div className='tweetCard'>
 
     </div>
   )
 }
 
+//A component like PetList to hold PetCards
+function FolderList(props) {
 
+  return (
+    <div className='tweetList'>
+
+    </div>
+  )
+}
+
+//This is a block with a big plus in the middle of it located immediately after teh last folder in the last.
+//When clicked it will ask the user for a folder name, user inputs name, presses confirm button next to it, makes folder with that name.
+//Immediately after a new folder is made, the block with the plus is moved a space over to keep it's position as last in the list.
+function CreateFolder(props) {
+
+  return (
+    <div className='plus'>
+
+    </div>
+  )
+}
 
 export default function Tweets(props) {
   return (
