@@ -26,7 +26,7 @@ export default function Menu(props) {
                     <li><img src='./img/favicon.png' alt='A picture of the website logo.'/></li>
 
                     <li>
-                        <button className='hamburger-menu' onClick={openOrClose}><i className='fa fa-bars' aria-label='menu'></i></button> 
+                        <button className='hamburger-menu' onClick={openOrClose} aria-label='menu'><i className='fa fa-bars' ></i></button> 
                         {isOpen && (
                             <ul className='hamburger-menu-list'>
                                 <li className='hamburger-menu-item'>

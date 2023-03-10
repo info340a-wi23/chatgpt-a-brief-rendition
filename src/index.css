@@ -78,7 +78,7 @@ h2 {
     text-decoration: none;
 }
 
-.link:hover, .link:active, .link:focus {
+.link:hover, .link.active, .link:focus {
     color: rgb(168, 255, 158);
     border-bottom: solid .5rem rgb(168, 255, 158);
     font-weight: 1000;
@@ -192,6 +192,10 @@ section.post-area img{
     display:block;
     height: 15%;
     width: 15%;
+}
+
+section.post-area a {
+    color: black;
 }
 
 div.head {
