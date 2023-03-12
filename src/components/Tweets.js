@@ -1,6 +1,7 @@
 import React from 'react';
 //import the function from the realtime database module
 import { getDatabase, ref } from 'firebase/database';
+import { Outlet } from 'react-router-dom';
 
 //get a reference to the database service
 // const db = getDatabase();
@@ -40,47 +41,12 @@ function RenderTweet(props) {
           {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
           <p>Comment</p>
         </dd>
+        
+        <Outlet/>
       </dl>
 
 
-
     );
-}
-
-//a component like PetCard
-function FolderCard(props) {
-  //create the interaction and conditional elements
-
-
-  //return the html elements with interaction/conditional elements
-  return (
-    <div className='tweetCard'>
-      <img src='img/folder.png' alt='Image of a folder.'/>
-      <p className='tweetCard-text'>{props.folderName}</p>
-    </div>
-  )
-}
-
-//A component like PetList to hold PetCards
-function FolderList(props) {
-
-  return (
-    <div className='tweetList'>
-
-    </div>
-  )
-}
-
-//This is a block with a big plus in the middle of it located immediately after teh last folder in the last.
-//When clicked it will ask the user for a folder name, user inputs name, presses confirm button next to it, makes folder with that name.
-//Immediately after a new folder is made, the block with the plus is moved a space over to keep it's position as last in the list.
-function CreateFolder(props) {
-
-  return (
-    <div className='addFolder'>
-        <button>+</button> 
-    </div>
-  )
 }
 
 export default function Tweets(props) {

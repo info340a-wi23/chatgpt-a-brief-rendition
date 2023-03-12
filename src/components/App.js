@@ -49,7 +49,6 @@ export default function App(props) {
     }
   }
 
-  //what content should my App look like?
     return(
         <div className='ChatGPTaBriefRendition'>
             <Menu currentUser={currentUser}/>
