@@ -9,22 +9,26 @@ import { getDatabase, ref } from 'firebase/database';
 //get reference to the "text" property in the database
 // const textTweet = ref(db, "text");
 
+
+//Find a way to display blocks of tweets saved within the folder.
 function tweetDisplay(props) {
   function handleRemoveClick() {
 
   }
 
   return (
-   <div>
-    
-   </div>
+    <div>
+      <div className='row'>
+        
+      </div>
+    </div>
   )
 }
 
 export default function SaveTweets(props) {
   return (
     <div className="container">
-      
+
     </div>
   );
 }

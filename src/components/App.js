@@ -16,12 +16,15 @@ import ErrorPage from './ErrorPage';
 // OTHER IMPORTS HERE
 import USERS from '../data/users.json';
 import CHAT_HISTORY from '../data/chat_log.json';
+import TWEETS from '../data/tweets.json';
 
 export default function App(props) {
   //state
   const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
   //initialize as null user
   const [currentUser, setCurrentUser] = useState(USERS[0]);
+
+  const [tweets, setTweets] = useState(TWEETS);
 
   const navigateTo = useNavigate();
 
@@ -58,7 +61,9 @@ export default function App(props) {
                 <Route path='' element={<Navigate to='/home' /> } /> 
                 <Route path='/home' element={ <HomePage /> } />
                 <Route path='/about' element={ <About /> } />
-                <Route path='/tweets' element={ <Tweets /> }/>
+                <Route path='/tweets' element={ <Tweets tweets={tweets}/> }>
+                  <Route index element={<SaveTweets tweets={tweets}/>}/>
+                </Route>
                 <Route path='/signin' element={ <SignInPage currentUser={currentUser} loginCallback={loginUser}/>} />
                 <Route path='*' element={ <ErrorPage />} />
                 {/* Protected */}
