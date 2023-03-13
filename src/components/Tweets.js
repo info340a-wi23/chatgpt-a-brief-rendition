@@ -4,6 +4,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 
 import { Outlet, Link } from 'react-router-dom';
 
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 //get a reference to the database service
 // const db = getDatabase();
 
@@ -51,15 +52,18 @@ function RenderTweet(props) {
     );
 }
 
-function ShowTweet(props) {
+function LoadTweets(props) {
   const tweets = props.tweets;
 
   const loadTweet = tweets.map((post) => {
     // const { date, hashtag, html, source, text, user_created, user_favourites, user_followers, user_friends, user_location, user_name, user_verified } = post;
+    const id = post.tweetid;
     return (
-      <div>
-        <>{post.html}</>
-      </div>
+      <section key={id}>
+        <div className='container'>
+          <TwitterTweetEmbed tweetId={id} />
+        </div>
+      </section>
     )
   })
   return loadTweet;
@@ -93,8 +97,8 @@ export default function Tweets(props) {
         <div className="container">
             <h2>Tweets</h2>
             <Link className="btn btn-info btn-outline-dark" to='/tweets/savedtweets'>Saved Tweets</Link>
-            <RenderTweet />
-            <ShowTweet tweets={tweets}/>
+            {/* <RenderTweet /> */}
+            <LoadTweets tweets={tweets}/>
         </div>
     );
 }
