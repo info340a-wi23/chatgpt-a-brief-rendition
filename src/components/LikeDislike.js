@@ -3,9 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LikeDislike(props) {
   const { post } = props;
-  const [like, setLike] = useState(post.likes);
+  //just number states
+  const [like, setLike] = useState(post.likes); 
   const [dislike, setDislike] = useState(post.dislikes);
-
+  //passed in the array of liked posts, but now how to pass it to liked/disliked folder files
+    // props.likedPosts
+    // props.dislikedPosts
   const handleLike = () => {
     setLike(like + 1);
     props.onLikePost();

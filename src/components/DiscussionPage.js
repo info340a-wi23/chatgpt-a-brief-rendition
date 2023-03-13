@@ -1,9 +1,12 @@
 // Updates on Discussion Page (more current version)
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush} from 'firebase/database';
 import LikeDislike from './LikeDislike';
 
 import DISCUSSION_HISTORY from '../data/discussion_log.json';
+import LikeFolder from './LikedFolder';
+import DislikeFolder from './DislikedFolder';
 
 function Search(props) {
     return (
@@ -19,6 +22,8 @@ function Search(props) {
                     <input type="text" name="q" placeholder="Search ..." />
                     <button aria-label="Search"><i className="fa fa-search" aria-hidden="true"></i></button>
                 </div>
+                <Link className="btn btn-info btn-outline-dark" to='./LikedFolder'><LikeFolder currentUser={currentUser} render={false} likedPosts={props.likedPosts}/>My Liked Posts</Link> 
+                <Link className="btn btn-info btn-outline-dark" to='./DislikedFolder'><DislikeFolder currentUser={currentUser} render={false} likedPosts={props.likedPosts}/>My Disliked Posts</Link>
             </div>
         </section>
     );
@@ -51,7 +56,7 @@ function RenderAllPost(props) {
               </div>
               <div className="content">
                 <p>{post}</p>
-                <LikeDislike post={{ likes, dislikes }} onLikePost={() => props.onLikePost(singlePost)} onDislikePost={() => props.onDislikePost(singlePost)} />
+                <LikeDislike post={{ likes, dislikes }} onLikePost={() => props.onLikePost(singlePost)} onDislikePost={() => props.onDislikePost(singlePost)}/> 
                 <div className='reply'>
                   <div><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
                   <button>
@@ -165,7 +170,7 @@ export default function DiscussionPage(props) {
 
     return (
         <div>
-            <Search />
+            <Search currentUser={currentUser} likedPosts={likedPosts} dislikedPosts={dislikedPosts}/> 
             <RenderAllPost postList={discussionPosts} likedPosts={likedPosts} dislikedPosts={dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost} />
             <CreateDiscussionPost currentUser={currentUser} makePostCallback={createPost} />
         </div>
