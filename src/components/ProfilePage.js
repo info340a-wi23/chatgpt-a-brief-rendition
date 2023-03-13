@@ -46,8 +46,8 @@ export default function ProfilePage(props) {
                         <h2>{props.currentUser.userName && displayName+"'s"} Profile</h2>
                         <img src={imageUrl} alt={currentUser.userName + " avatar"} className="mb-2" width='200'/>
                         <div className="mb-5">
-                            <label htmlFor="imageUploadInput" className="btn btn-sm btn-secondary me-2">Choose Image</label>
-                            <button className="btn btn-sm btn-success" onClick={handleImageUpload}>Save to Profile</button>
+                            <div><label htmlFor="imageUploadInput" className="btn btn-sm btn-secondary me-2">Choose Image</label></div>
+                            <div><button className="btn btn-sm btn-success" onClick={handleImageUpload}>Save to Profile</button></div>
                             <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange}/>
                         </div>
                     </div>

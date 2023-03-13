@@ -28,7 +28,7 @@ function FolderList(props) {
         <button onClick={handleFolderClick(2)}>Bad Tweets</button>
       </div>
       <div className='row'>
-        <FolderDetails />
+        {/* <FolderDetails /> */}
       </div>
     </div>
   );

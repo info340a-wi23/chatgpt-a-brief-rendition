@@ -19,10 +19,10 @@ function LikeDislike(props) {
   return (
     <div>
       <button className="btn btn-primary mr-2" onClick={handleLike}>
-        Like <span className="badge badge-light">{like}</span>
+        Like <span className="badge badge-dark">{like}</span>
       </button>
       <button className="btn btn-danger" onClick={handleDislike}>
-        Dislike <span className="badge badge-light">{dislike}</span>
+        Dislike <span className="badge badge-dark">{dislike}</span>
       </button>
     </div>
   );

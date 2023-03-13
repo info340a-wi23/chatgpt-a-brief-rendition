@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 //import the function from the realtime database module
-import { getDatabase, ref } from 'firebase/database';
-import { Outlet } from 'react-router-dom';
+import { getDatabase, ref, onValue } from 'firebase/database';
+
+import { Outlet, Link } from 'react-router-dom';
 
 //get a reference to the database service
 // const db = getDatabase();
@@ -50,11 +51,50 @@ function RenderTweet(props) {
     );
 }
 
+function ShowTweet(props) {
+  const tweets = props.tweets;
+
+  const loadTweet = tweets.map((post) => {
+    // const { date, hashtag, html, source, text, user_created, user_favourites, user_followers, user_friends, user_location, user_name, user_verified } = post;
+    return (
+      <div>
+        <>{post.html}</>
+      </div>
+    )
+  })
+  return loadTweet;
+}
+
 export default function Tweets(props) {
+    const [tweets, setTweets] = useState([]);
+    
+    useEffect(() => {
+        const db = getDatabase();
+        const postsRef = ref(db, 'tweets');
+
+        const offFunction = onValue(postsRef, (snapshot) => {
+            const valueObj = snapshot.val();
+            const objKeys = Object.keys(valueObj);
+            const objArray = objKeys.map((keyString) => {
+                const tweetsObj = valueObj[keyString];
+                tweetsObj.key = keyString;
+                return tweetsObj;
+            })
+            setTweets(objArray);
+        })
+
+        function cleanup() {
+            offFunction();
+        }
+        return cleanup;
+    }, [])
+  
   return (
         <div className="container">
             <h2>Tweets</h2>
+            <Link className="btn btn-info btn-outline-dark" to='/tweets/savedtweets'>Saved Tweets</Link>
             <RenderTweet />
+            <ShowTweet tweets={tweets}/>
         </div>
     );
 }

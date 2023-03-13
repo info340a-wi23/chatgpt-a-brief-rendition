@@ -11,7 +11,7 @@ import { getDatabase, ref } from 'firebase/database';
 
 
 //Find a way to display blocks of tweets saved within the folder.
-function tweetDisplay(props) {
+export function tweetDisplay(props) {
   function handleRemoveClick() {
 
   }

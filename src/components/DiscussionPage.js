@@ -1,6 +1,6 @@
 // Updates on Discussion Page (more current version)
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush} from 'firebase/database';
 import LikeDislike from './LikeDislike';
 
 import DISCUSSION_HISTORY from '../data/discussion_log.json';
@@ -26,6 +26,9 @@ function Search(props) {
 
 function RenderAllPost(props) {
     const currentPost = props.postList;
+
+    // const db = getDatabase();
+    // const currentPost = ref(db, 'discussion_log');
   
     const postList = currentPost.map((singlePost) => {
       const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post, likes, dislikes } = singlePost;
@@ -40,7 +43,7 @@ function RenderAllPost(props) {
             </div>
             <div className="body">
               <div className="authors">
-                <div className="username">Author: <a href="">{userName}</a></div>
+                <div className="username">Author: <u>{userName}</u></div>
                 <div>Role: {userRole}</div>
                 <img src={userImg} alt={userName + ' avatar'} />
                 <div>Posts: <u>{numPosts}</u></div>
@@ -50,7 +53,7 @@ function RenderAllPost(props) {
                 <p>{post}</p>
                 <LikeDislike post={{ likes, dislikes }} onLikePost={() => props.onLikePost(singlePost)} onDislikePost={() => props.onDislikePost(singlePost)} />
                 <div className='reply'>
-                  <div ><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
+                  <div><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
                   <button>
                     <span className="material-symbols-outlined">reply</span> Reply
                   </button>
@@ -66,7 +69,7 @@ function RenderAllPost(props) {
 }
 
 function CreateDiscussionPost(props) {
-    const [input, setInput] = useState({});
+    const [input, setInput] = useState('');
 
     const currentUser = props.currentUser;
     const makePostCallback = props.makePostCallback;
@@ -81,7 +84,7 @@ function CreateDiscussionPost(props) {
         event.preventDefault();
         console.log(input)
         makePostCallback(input.topic, input.post);
-        setInput({})
+        setInput('')
     }
 
     return (
@@ -102,10 +105,33 @@ function CreateDiscussionPost(props) {
 }
 
 export default function DiscussionPage(props) {
-    const [discussionPosts, setDiscussionPosts] = useState(DISCUSSION_HISTORY);
+    // const [discussionPosts, setDiscussionPosts] = useState(DISCUSSION_HISTORY);
+    const [discussionPosts, setDiscussionPosts] = useState([]);
     const [likedPosts, setLikedPosts] = useState([]);
     const [dislikedPosts, setDislikedPosts] = useState([]);
     const currentUser = props.currentUser;
+    
+    useEffect(() => {
+        const db = getDatabase();
+        const postsRef = ref(db, 'discussion_log');
+
+        const offFunction = onValue(postsRef, (snapshot) => {
+            const valueObj = snapshot.val();
+            const objKeys = Object.keys(valueObj);
+            const objArray = objKeys.map((keyString) => {
+                const theMessageObj = valueObj[keyString];
+                theMessageObj.key = keyString;
+                return theMessageObj;
+            })
+            setDiscussionPosts(objArray);
+        })
+
+        function cleanup() {
+            offFunction();
+        }
+        return cleanup;
+    }, [])
+
 
     const createPost = (topic, userText) => {
         const userObj = currentUser;
@@ -113,16 +139,20 @@ export default function DiscussionPage(props) {
             "userId": userObj.userId,
             "userName": userObj.userName,
             "userImg": userObj.userImg,
-            "userRole": userObj.userRole,
+            "userRole": ((userObj.userRole === undefined) ? '' : userObj.userRole),
             "timestamp": Date.now(),
             "topic": topic,
             "post": userText,
             "likes": 0,
             "dislikes": 0
         }
-
+        
+        const db = getDatabase();
+        const discussions = ref(db, 'discussion_log');
         const updateDiscussion = [...discussionPosts, newPost];
         setDiscussionPosts(updateDiscussion);
+        console.log(newPost)
+        firebasePush(discussions, newPost);
     }
 
     const handleLikePost = (post) => {

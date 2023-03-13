@@ -10,8 +10,9 @@ import DiscussionPage from './DiscussionPage';
 import Tweets from './Tweets';
 import Footer from './Footer';
 import SignInPage from './SignInPage';
-import ProfilePage from './ProfilePage'
+import ProfilePage from './ProfilePage';
 import ErrorPage from './ErrorPage';
+import SaveTweets from './SaveTweets';
 
 // OTHER IMPORTS HERE
 import USERS from '../data/users.json';
@@ -62,7 +63,7 @@ export default function App(props) {
                 <Route path='/home' element={ <HomePage /> } />
                 <Route path='/about' element={ <About /> } />
                 <Route path='/tweets' element={ <Tweets tweets={tweets}/> }>
-                  <Route index element={<SaveTweets tweets={tweets}/>}/>
+                  <Route path='savedtweets' element={<SaveTweets tweets={tweets}/>}/>
                 </Route>
                 <Route path='/signin' element={ <SignInPage currentUser={currentUser} loginCallback={loginUser}/>} />
                 <Route path='*' element={ <ErrorPage />} />
