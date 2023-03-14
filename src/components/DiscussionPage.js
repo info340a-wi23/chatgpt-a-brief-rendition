@@ -1,6 +1,6 @@
 // Updates on Discussion Page (more current version)
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush} from 'firebase/database';
 import LikeDislike from './LikeDislike';
 
@@ -8,7 +8,10 @@ import DISCUSSION_HISTORY from '../data/discussion_log.json';
 import LikeFolder from './LikedFolder';
 import DislikeFolder from './DislikedFolder';
 
-function Search(props) {
+function Search(props) {  
+    function handleLink(){
+    
+  }
     return (
         <section className="search-box-area">
             <div className="container">
@@ -22,8 +25,8 @@ function Search(props) {
                     <input type="text" name="q" placeholder="Search ..." />
                     <button aria-label="Search"><i className="fa fa-search" aria-hidden="true"></i></button>
                 </div>
-                <Link className="btn btn-info btn-outline-dark" to='./LikedFolder'><LikeFolder currentUser={currentUser} render={false} likedPosts={props.likedPosts}/>My Liked Posts</Link> 
-                <Link className="btn btn-info btn-outline-dark" to='./DislikedFolder'><DislikeFolder currentUser={currentUser} render={false} likedPosts={props.likedPosts}/>My Disliked Posts</Link>
+                {/* <Link className="btn btn-info btn-outline-dark" to='/likefolder'>My Liked Posts</Link>  */}
+                {/* <Link className="btn btn-info btn-outline-dark" to='./DislikedFolder'><DislikeFolder currentUser={props.currentUser} render={false} likedPosts={props.likedPosts}/>My Disliked Posts</Link> */}
             </div>
         </section>
     );
@@ -34,7 +37,7 @@ function RenderAllPost(props) {
 
     // const db = getDatabase();
     // const currentPost = ref(db, 'discussion_log');
-  
+
     const postList = currentPost.map((singlePost) => {
       const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post, likes, dislikes } = singlePost;
       return (
@@ -111,6 +114,7 @@ function CreateDiscussionPost(props) {
 
 export default function DiscussionPage(props) {
     // const [discussionPosts, setDiscussionPosts] = useState(DISCUSSION_HISTORY);
+
     const [discussionPosts, setDiscussionPosts] = useState([]);
     const [likedPosts, setLikedPosts] = useState([]);
     const [dislikedPosts, setDislikedPosts] = useState([]);
@@ -128,7 +132,7 @@ export default function DiscussionPage(props) {
                 theMessageObj.key = keyString;
                 return theMessageObj;
             })
-            setDiscussionPosts(objArray);
+            /*props.*/setDiscussionPosts(objArray);
         })
 
         function cleanup() {
@@ -139,7 +143,7 @@ export default function DiscussionPage(props) {
 
 
     const createPost = (topic, userText) => {
-        const userObj = currentUser;
+        const userObj = /*props.*/currentUser;
         const newPost = {
             "userId": userObj.userId,
             "userName": userObj.userName,
@@ -154,25 +158,25 @@ export default function DiscussionPage(props) {
         
         const db = getDatabase();
         const discussions = ref(db, 'discussion_log');
-        const updateDiscussion = [...discussionPosts, newPost];
-        setDiscussionPosts(updateDiscussion);
+        const updateDiscussion = [.../*props.*/discussionPosts, newPost];
+        props.setDiscussionPosts(updateDiscussion);
         console.log(newPost)
         firebasePush(discussions, newPost);
     }
 
     const handleLikePost = (post) => {
-        setLikedPosts([...likedPosts, post]);
+        /*props.*/setLikedPosts([.../*props.*/likedPosts, post]);
     };
       
     const handleDislikePost = (post) => {
-        setDislikedPosts([...dislikedPosts, post]);
+        /*props.*/setDislikedPosts([.../*props.*/dislikedPosts, post]);
     };
 
     return (
         <div>
-            <Search currentUser={currentUser} likedPosts={likedPosts} dislikedPosts={dislikedPosts}/> 
-            <RenderAllPost postList={discussionPosts} likedPosts={likedPosts} dislikedPosts={dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost} />
-            <CreateDiscussionPost currentUser={currentUser} makePostCallback={createPost} />
+            <Search setLikedPosts={/*props.*/setLikedPosts}currentUser={/*props.*/currentUser} likedPosts={/*props.*/likedPosts} dislikedPosts={/*props.*/dislikedPosts}/> 
+            <RenderAllPost postList={/*props.*/discussionPosts} likedPosts={/*props.*/likedPosts} dislikedPosts={/*props.*/dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost}/>
+            <CreateDiscussionPost currentUser={/*props.*/currentUser} makePostCallback={createPost} />
         </div>
     )
 }

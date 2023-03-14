@@ -4,12 +4,16 @@ import { Outlet } from 'react-router-dom';
 import { tweetDisplay } from './FolderDetails';
 //import the function from the realtime database module
 import { getDatabase, ref } from 'firebase/database';
+import LikeDislike from './LikeDislike';
+import { set as firebaseSet, onValue, push as firebasePush} from 'firebase/database';
 
 function RenderLikedPosts(props) {
-  const currentPost = props.likedPosts;
+    console.log(props.likedPosts); //shows that likePosts is undefined
 
+  const currentPost = props.likedPosts; //changed from props.postList
   const postList = currentPost.map((singlePost) => {
     const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post, likes, dislikes } = singlePost;
+
     return (
       <section className="post-area" key={timestamp + userId}>
         <div className="container">
@@ -63,7 +67,7 @@ export default function LikeFolder(props) {
               theMessageObj.key = keyString;
               return theMessageObj;
           })
-          setLikedPosts(objArray); //Change from setDiscussionPost
+          props.setLikedPosts(objArray); //Change from setDiscussionPost, not sure if states carried over though in props
       })
 
       function cleanup() {
@@ -72,40 +76,20 @@ export default function LikeFolder(props) {
       return cleanup;
   }, [])
 
-
-  const createPost = (topic, userText) => {
-      const userObj = currentUser;
-      const newPost = {
-          "userId": userObj.userId,
-          "userName": userObj.userName,
-          "userImg": userObj.userImg,
-          "userRole": ((userObj.userRole === undefined) ? '' : userObj.userRole),
-          "timestamp": Date.now(),
-          "topic": topic,
-          "post": userText,
-          "likes": 0,
-          "dislikes": 0
-      }
-      
-      const db = getDatabase();
-      const discussions = ref(db, 'discussion_log');
-      const updateDiscussion = [...discussionPosts, newPost];
-      setDiscussionPosts(updateDiscussion);
-      console.log(newPost)
-      firebasePush(discussions, newPost);
-  }
-
   const handleLikePost = (post) => {
-      setLikedPosts([...likedPosts, post]);
+      props.setLikedPosts([...props.likedPosts, post]);
   };
     
   const handleDislikePost = (post) => {
-      setDislikedPosts([...dislikedPosts, post]);
+      props.setDislikedPosts([...props.dislikedPosts, post]);
   };
 
-  return (
+  if(props.render==true){
+    return (
       <div>
-          <RenderLikedPost postList={discussionPosts} likedPosts={likedPosts} dislikedPosts={dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost} />
+          <RenderLikedPosts postList={props.discussionPosts} likedPosts={props.likedPosts} dislikedPosts={props.dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost} />
       </div>
   )
+  }
+  
 }

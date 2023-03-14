@@ -13,7 +13,7 @@ import SignInPage from './SignInPage';
 import ProfilePage from './ProfilePage';
 import ErrorPage from './ErrorPage';
 import SaveTweets from './SaveTweets';
-
+import LikeFolder from './LikedFolder';
 // OTHER IMPORTS HERE
 import USERS from '../data/users.json';
 import CHAT_HISTORY from '../data/chat_log.json';
@@ -29,6 +29,11 @@ export default function App(props) {
 
   const navigateTo = useNavigate();
 
+  const [discussionPosts, setDiscussionPosts] = useState([]);
+  const [likedPosts, setLikedPosts] = useState([]);
+  const [dislikedPosts, setDislikedPosts] = useState([]);
+  // const currentUser = props.currentUser;
+  
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (firebaseUser) => {
@@ -69,7 +74,9 @@ export default function App(props) {
                 <Route path='*' element={ <ErrorPage />} />
                 {/* Protected */}
                 <Route element={<ProtectedPage currentUser={currentUser} />}>
-                  <Route path='/discussion' element={ <DiscussionPage currentUser={currentUser} /> }/>
+                  <Route path='/discussion' element={ <DiscussionPage currentUser={currentUser} /> }>
+                    {/* <Route path='/likefolder' element={<LikeFolder setLikedPosts={setLikedPosts} currentUser={currentUser} render={true} likedPosts={likedPosts}/>}/> */}
+                  </Route>
                   <Route path="/profile" element={<ProfilePage currentUser={currentUser} />}/>
                 </Route>
             </Routes>
