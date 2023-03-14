@@ -70,33 +70,41 @@ function LoadTweets(props) {
 }
 
 export default function Tweets(props) {
-    const [tweets, setTweets] = useState([]);
-    
-    useEffect(() => {
-        const db = getDatabase();
-        const postsRef = ref(db, 'tweets');
-
-        const offFunction = onValue(postsRef, (snapshot) => {
-            const valueObj = snapshot.val();
-            const objKeys = Object.keys(valueObj);
-            const objArray = objKeys.map((keyString) => {
-                const tweetsObj = valueObj[keyString];
-                tweetsObj.key = keyString;
-                return tweetsObj;
-            })
-            setTweets(objArray);
-        })
-
-        function cleanup() {
-            offFunction();
-        }
-        return cleanup;
-    }, [])
+  const [tweets, setTweets] = useState([]);
+  const [descending, setDescending] = useState(true);
   
+  useEffect(() => {
+    const db = getDatabase();
+    const postsRef = ref(db, 'tweets');
+    
+    const offFunction = onValue(postsRef, (snapshot) => {
+      const valueObj = snapshot.val();
+      const objKeys = Object.keys(valueObj);
+      const objArray = objKeys.map((keyString) => {
+          const tweetsObj = valueObj[keyString];
+          tweetsObj.key = keyString;
+          return tweetsObj;
+      })
+          setTweets(objArray.sort((a,b) => b.timestamp - a.timestamp));
+      })
+
+      function cleanup() {
+          offFunction();
+      }
+      return cleanup;
+  }, [])
+  
+  const handleClick = (event) => {
+    setTweets(tweets.reverse());
+    setDescending(!descending);
+
+  }
+
   return (
         <div className="container">
+          <button className='btn btn-info btn-outline-dark' onClick={handleClick}>Filter Date: {descending ? 'Descending' : 'Ascending'}</button>
             <h2>Tweets</h2>
-            <Link className="btn btn-info btn-outline-dark" to='/tweets/savedtweets'>Saved Tweets</Link>
+            {/* <Link className="btn btn-info btn-outline-dark" to='/tweets/savedtweets'>Saved Tweets</Link> */}
             {/* <RenderTweet /> */}
             <LoadTweets tweets={tweets}/>
         </div>
