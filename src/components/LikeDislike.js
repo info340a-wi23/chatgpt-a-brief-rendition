@@ -24,7 +24,7 @@ function LikeDislike(props) {
     }
     props.onLikePost();
   };
-  
+
   const handleDislike = () => {
     if (userReaction === 'dislike') {
       setUserReaction(null);

@@ -1,17 +1,8 @@
-// Updates on Discussion Page (more current version)
 import React, { useEffect, useState } from 'react';
-import { Link} from 'react-router-dom';
-import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush} from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } from 'firebase/database';
 import LikeDislike from './LikeDislike';
 
-import DISCUSSION_HISTORY from '../data/discussion_log.json';
-import LikeFolder from './LikedFolder';
-import DislikeFolder from './DislikedFolder';
-
-function Search(props) {  
-    function handleLink(){
-    
-  }
+function Search(props) {
     return (
         <section className="search-box-area">
             <div className="container">
@@ -25,8 +16,6 @@ function Search(props) {
                     <input type="text" name="q" placeholder="Search ..." />
                     <button aria-label="Search"><i className="fa fa-search" aria-hidden="true"></i></button>
                 </div>
-                {/* <Link className="btn btn-info btn-outline-dark" to='/likefolder'>My Liked Posts</Link>  */}
-                {/* <Link className="btn btn-info btn-outline-dark" to='./DislikedFolder'><DislikeFolder currentUser={props.currentUser} render={false} likedPosts={props.likedPosts}/>My Disliked Posts</Link> */}
             </div>
         </section>
     );
@@ -34,44 +23,37 @@ function Search(props) {
 
 function RenderAllPost(props) {
     const currentPost = props.postList;
-
-    // const db = getDatabase();
-    // const currentPost = ref(db, 'discussion_log');
-
     const postList = currentPost.map((singlePost) => {
-      const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post, likes, dislikes } = singlePost;
-      return (
-        <section className="post-area" key={timestamp + userId}>
-          <div className="container">
-            {/* <!--Topic Section--> */}
-            {/* <div> */}
-            {/* <!--Original thread--> */}
-            <div className="head">
-              <div className="content">Topic: {topic}</div>
-            </div>
-            <div className="body">
-              <div className="authors">
-                <div className="username">Author: <u>{userName}</u></div>
-                <div>Role: {userRole}</div>
-                <img src={userImg} alt={userName + ' avatar'} />
-                <div>Posts: <u>{numPosts}</u></div>
-                <div>Points: <u>{totalPoints}</u></div>
-              </div>
-              <div className="content">
-                <p>{post}</p>
-                <LikeDislike post={{ likes, dislikes }} onLikePost={() => props.onLikePost(singlePost)} onDislikePost={() => props.onDislikePost(singlePost)}/> 
-                <div className='reply'>
-                  <div><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
-                  <button>
-                    <span className="material-symbols-outlined">reply</span> Reply
-                  </button>
+        const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post, likes, dislikes } = singlePost;
+        return (
+            <section className="post-area" key={timestamp + userId}>
+                <div className="container">
+                    {/* <!--Topic Section--> */}
+                    <div className="head">
+                        <div className="content">Topic: {topic}</div>
+                    </div>
+                    <div className="body">
+                        <div className="authors">
+                            <div className="username">Author: <u>{userName}</u></div>
+                            <div>Role: {userRole}</div>
+                            <img src={userImg} alt={userName + ' avatar'} />
+                            <div>Posts: <u>{numPosts}</u></div>
+                            <div>Points: <u>{totalPoints}</u></div>
+                        </div>
+                        <div className="content">
+                            <p>{post}</p>
+                            <LikeDislike post={{ likes, dislikes }} onLikePost={() => props.onLikePost(singlePost)} onDislikePost={() => props.onDislikePost(singlePost)} />
+                            <div className='reply'>
+                                <div><textarea className='container-fluid' name='reply' rows='3' placeholder='Reply to Post'></textarea></div>
+                                <button>
+                                    <span className="material-symbols-outlined">reply</span> Reply
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </div>
-        </section>
-      )
+            </section>
+        )
     })
     return postList;
 }
@@ -112,13 +94,11 @@ function CreateDiscussionPost(props) {
 }
 
 export default function DiscussionPage(props) {
-    // const [discussionPosts, setDiscussionPosts] = useState(DISCUSSION_HISTORY);
-
     const [discussionPosts, setDiscussionPosts] = useState([]);
     const [likedPosts, setLikedPosts] = useState([]);
     const [dislikedPosts, setDislikedPosts] = useState([]);
     const currentUser = props.currentUser;
-    
+
     useEffect(() => {
         const db = getDatabase();
         const postsRef = ref(db, 'discussion_log');
@@ -131,7 +111,7 @@ export default function DiscussionPage(props) {
                 theMessageObj.key = keyString;
                 return theMessageObj;
             })
-            /*props.*/setDiscussionPosts(objArray);
+            setDiscussionPosts(objArray);
         })
 
         function cleanup() {
@@ -142,7 +122,7 @@ export default function DiscussionPage(props) {
 
 
     const createPost = (topic, userText) => {
-        const userObj = /*props.*/currentUser;
+        const userObj = currentUser;
         const newPost = {
             "userId": userObj.userId,
             "userName": userObj.userName,
@@ -154,7 +134,7 @@ export default function DiscussionPage(props) {
             "likes": 0,
             "dislikes": 0
         }
-        
+
         const db = getDatabase();
         const discussions = ref(db, 'discussion_log');
         const updateDiscussion = [...discussionPosts, newPost];
@@ -165,15 +145,15 @@ export default function DiscussionPage(props) {
     const handleLikePost = (post) => {
         setLikedPosts([...likedPosts, post]);
     };
-      
+
     const handleDislikePost = (post) => {
         setDislikedPosts([...dislikedPosts, post]);
     };
 
     return (
         <div>
-            <Search setLikedPosts={setLikedPosts}currentUser={currentUser} likedPosts={likedPosts} dislikedPosts={dislikedPosts}/> 
-            <RenderAllPost postList={discussionPosts} likedPosts={likedPosts} dislikedPosts={dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost}/>
+            <Search setLikedPosts={setLikedPosts} currentUser={currentUser} likedPosts={likedPosts} dislikedPosts={dislikedPosts} />
+            <RenderAllPost postList={discussionPosts} likedPosts={likedPosts} dislikedPosts={dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost} />
             <CreateDiscussionPost currentUser={currentUser} makePostCallback={createPost} />
         </div>
     )

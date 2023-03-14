@@ -6,12 +6,7 @@ function MainContent() {
             <div className="container">
                 <h2>What is ChatGPT?</h2>
                 <p>ChatGPT is a Large Language Model (LLM) developed by OpenAI that is capable of completing a wide range of natural language tasks, such as text generation, translation, and summarization. It is also able to generate code and document it well. All of this can be done with prompts given by the user. It is trained on text data scraped from the internet, which includes 25% of Reddit posts and various academic articles and books. The model has been released recently and is already showing a lot of potential for various applications, but it also raises important ethical and societal questions.</p>
-                {/* Fix image to render with CSS */}
-                {/* <picture>
-                <source srcset="./img/chatgptsm.jpg" media="(max-width: 600px)">
-                <source srcset="./img/chatgptm.png" media="(max-width: 992px)"> */}
                 <img src={require("./img/chatgptlg.png")} alt="ChatGPT Screenshot" />
-                {/* </picture> */}
             </div>
         </section>
     )

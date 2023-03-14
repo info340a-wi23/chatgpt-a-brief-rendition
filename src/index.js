@@ -6,12 +6,10 @@ import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TWEETS from './data/tweets.json'; //import our tweets
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+
+// Web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC6b_eRytm05CFQ8ISFhdOGqe1DdaFeXCo",
   authDomain: "chatgpt-a-brief-rendition.firebaseapp.com",

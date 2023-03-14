@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function Menu(props) {
     const [isOpen, openIt] = useState(false);
@@ -23,17 +19,17 @@ export default function Menu(props) {
         <nav className='main-nav navbar'>
             <div className="dropdown">
                 <ul>
-                    <li><img src='./img/favicon.png' alt='A picture of the website logo.'/></li>
+                    <li><img src='./img/favicon.png' alt='A picture of the website logo.' /></li>
 
                     <li>
-                        <button className='hamburger-menu' onClick={openOrClose} aria-label='menu'><i className='fa fa-bars' ></i></button> 
+                        <button className='hamburger-menu' onClick={openOrClose} aria-label='menu'><i className='fa fa-bars' ></i></button>
                         {isOpen && (
                             <ul className='hamburger-menu-list'>
                                 <li className='hamburger-menu-item'>
                                     <NavLink to='home' className='link'><span className='material-symbols-outlined'>cottage</span></NavLink>
                                 </li>
                                 <li className='hamburger-menu-item'>
-                                    <NavLink to='about' className='link'>About</NavLink>                           
+                                    <NavLink to='about' className='link'>About</NavLink>
                                 </li>
                                 <li className='hamburger-menu-item'>
                                     <NavLink to='discussion' className='link'>Discussion</NavLink>
@@ -41,7 +37,7 @@ export default function Menu(props) {
                                 <li className='hamburger-menu-item'>
                                     <NavLink to='tweets' className='link'>Tweets</NavLink>
                                 </li>
-                                {currentUser.userId && 
+                                {currentUser.userId &&
                                     <>
                                         <li>
                                             <NavLink to="/profile" className="link">
@@ -69,7 +65,7 @@ export default function Menu(props) {
                     <li><NavLink to='discussion' className='link'>Discussion</NavLink></li>
                     <li><NavLink to='tweets' className='link'>Tweets</NavLink></li>
 
-                    {currentUser.userId && 
+                    {currentUser.userId &&
                         <>
                             <li>
                                 <NavLink to="/profile" className="link">
@@ -92,7 +88,7 @@ export default function Menu(props) {
                 </ul>
             </div>
 
-            {}
+            { }
         </nav>
     )
 }

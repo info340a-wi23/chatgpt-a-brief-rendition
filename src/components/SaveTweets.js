@@ -1,15 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
 import { tweetDisplay } from './FolderDetails';
-//import the function from the realtime database module
-import { getDatabase, ref } from 'firebase/database';
-
-//get a reference to the database service
-// const db = getDatabase();
-
-//get reference to the "text" property in the database
-// const textTweet = ref(db, "text");
 
 function FolderList(props) {
   //folderId and folderName DO NOT CHANGE, only refer to them to change folderContents.
@@ -28,12 +19,9 @@ function FolderList(props) {
         <button onClick={handleFolderClick(2)}>Bad Tweets</button>
       </div>
       <div className='row'>
-        {/* <FolderDetails /> */}
       </div>
     </div>
   );
-
-
 
   function handleFolderClick(id) {
     render = false;

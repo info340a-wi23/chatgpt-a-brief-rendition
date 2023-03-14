@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Routes, Route, Navigate, Outlet, useNavigate} from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import Menu from './Menu';
@@ -13,31 +13,22 @@ import SignInPage from './SignInPage';
 import ProfilePage from './ProfilePage';
 import ErrorPage from './ErrorPage';
 import SaveTweets from './SaveTweets';
-import LikeFolder from './LikedFolder';
+
 // OTHER IMPORTS HERE
 import USERS from '../data/users.json';
 import CHAT_HISTORY from '../data/chat_log.json';
 import TWEETS from '../data/tweets.json';
 
 export default function App(props) {
-  //state
-  const [chatMessages, setChatMessages] = useState(CHAT_HISTORY);
-  //initialize as null user
-  const [currentUser, setCurrentUser] = useState(USERS[0]);
-
+  //state variables
+  const [currentUser, setCurrentUser] = useState(USERS[0]);  //initialize as null user
   const [tweets, setTweets] = useState(TWEETS);
-
   const navigateTo = useNavigate();
 
-  const [discussionPosts, setDiscussionPosts] = useState([]);
-  const [likedPosts, setLikedPosts] = useState([]);
-  const [dislikedPosts, setDislikedPosts] = useState([]);
-  // const currentUser = props.currentUser;
-  
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (firebaseUser) => {
-      if(firebaseUser) {
+      if (firebaseUser) {
         firebaseUser.userId = firebaseUser.uid;
         firebaseUser.userName = firebaseUser.displayName;
         firebaseUser.userImg = firebaseUser.photoURL || "/img/null.png";
@@ -46,50 +37,48 @@ export default function App(props) {
       else {
         setCurrentUser(USERS[0]);
       }
-  })
+    })
 
-}, [])
-  
+  }, [])
+
   const loginUser = (userObj) => {
     setCurrentUser(userObj);
-    
-    if(userObj.userId !== null){
+
+    if (userObj.userId !== null) {
       navigateTo('/discussion');
     }
   }
 
-    return(
-        <div className='ChatGPTaBriefRendition'>
-            <Menu currentUser={currentUser}/>
-            <Header />
-            <Routes>
-                {/* Automatically sends to home page */}
-                <Route path='' element={<Navigate to='/home' /> } /> 
-                <Route path='/home' element={ <HomePage /> } />
-                <Route path='/about' element={ <About /> } />
-                <Route path='/tweets' element={ <Tweets tweets={tweets}/> }>
-                  <Route path='savedtweets' element={<SaveTweets tweets={tweets}/>}/>
-                </Route>
-                <Route path='/signin' element={ <SignInPage currentUser={currentUser} loginCallback={loginUser}/>} />
-                <Route path='*' element={ <ErrorPage />} />
-                {/* Protected */}
-                <Route element={<ProtectedPage currentUser={currentUser} />}>
-                  <Route path='/discussion' element={ <DiscussionPage currentUser={currentUser} /> }>
-                    {/* <Route path='/likefolder' element={<LikeFolder setLikedPosts={setLikedPosts} currentUser={currentUser} render={true} likedPosts={likedPosts}/>}/> */}
-                  </Route>
-                  <Route path="/profile" element={<ProfilePage currentUser={currentUser} />}/>
-                </Route>
-            </Routes>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className='ChatGPTaBriefRendition'>
+      <Menu currentUser={currentUser} />
+      <Header />
+      <Routes>
+        {/* Automatically sends to home page */}
+        <Route path='' element={<Navigate to='/home' />} />
+        <Route path='/home' element={<HomePage />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/tweets' element={<Tweets tweets={tweets} />}>
+          <Route path='savedtweets' element={<SaveTweets tweets={tweets} />} />
+        </Route>
+        <Route path='/signin' element={<SignInPage currentUser={currentUser} loginCallback={loginUser} />} />
+        <Route path='*' element={<ErrorPage />} />
+        {/* Protected */}
+        <Route element={<ProtectedPage currentUser={currentUser} />}>
+          <Route path='/discussion' element={<DiscussionPage currentUser={currentUser} />} />
+          <Route path="/profile" element={<ProfilePage currentUser={currentUser} />} />
+        </Route>
+      </Routes>
+      <Footer />
+    </div>
+  );
 }
 
 function ProtectedPage(props) {
-  if(props.currentUser.userId === null) { 
+  if (props.currentUser.userId === null) {
     return <Navigate to='/signin' />
   }
-  else { 
+  else {
     return <Outlet />
   }
 }
