@@ -179,7 +179,7 @@ section.about-action img {
 /* Discussion Page */
 section.search-box-area {
     background-color: #f68700;
-    color: white;
+    color: rgb(0, 0, 0);
     padding-bottom: 30px;
 }
 
@@ -240,6 +240,18 @@ div.container-submit {
     outline-style: solid;
     outline-width: 2px;
 }
+/* Tweets Page*/
+.tweetHeader {
+    background-color: #f68700;
+    color: rgb(0, 0, 0);
+    padding-bottom: 30px;
+    text-align: center;
+}
+.tweetHeader h2 {
+    text-decoration: underline solid;
+}
+
+
 
 @media (min-width: 768px) {
     .navbar img{
@@ -271,6 +283,13 @@ div.container-submit {
         max-width: 75%;
         border-radius: 15px;
         margin: 0 10vw;
+    }
+
+    .tweetDisplay {
+        display: block;
+        margin:0 600vw;
+        max-width: 100%;
+        
     }
 }
 

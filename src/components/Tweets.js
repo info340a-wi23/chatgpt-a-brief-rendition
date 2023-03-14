@@ -13,43 +13,43 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 
 function RenderTweet(props) {
-    // Fix Tweets so they display (2+ dont display)
-    // Use prop and json file to import more tweets
-    // Prop needs: Caption, Link, Profile Name, Username, 
-    return (
-      <div>
-        <dl>
-          <dt>ChatGPT Chef</dt>
-          <dd>
-            <blockquote className="twitter-tweet">
-              <p lang="art" dir="ltr">👍🤣😍 <a href="https://t.co/VUAeMMcu2h">https://t.co/VUAeMMcu2h</a></p>&mdash;
-              ChatGPT Chef (@ChatGPTChef) <a
-                href="https://twitter.com/ChatGPTChef/status/1619644451714113536?ref_src=twsrc%5Etfw">January 29,
-                2023</a>
-            </blockquote>
-            {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
-            <p>Comment</p>
-          </dd>          
-          <dt>ChatGPT 2049</dt>
-          <dd>
-            <blockquote className="twitter-tweet">
-              <p lang="en" dir="ltr">ChatGPT is a free money printer. But 99% of people don&#39;t use it
-                properly. That&#39;s why I created this FREE resource: •100+ ChatGPT Business
-                Ideas •500+ Prompts •500+ AI tools •Best ChatGPT Resources Like, Retweet, Follow,
-                Comment &#39;me&#39; &amp; I&#39;ll DM it… <a
-                  href="https://t.co/3IerWfIJxC">https://t.co/3IerWfIJxC</a></p>&mdash; ChatGPT 2049 (@ChatGPT2049) <a
-                href="https://twitter.com/rowancheung/status/1619789758191788034?ref_src=twsrc%5Etfw">January 29,
-                2023</a>
-            </blockquote>
-            {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
-            <p>Comment</p>
-          </dd>
-         </dl>
-        <Outlet/>
-      </div>
+  // Fix Tweets so they display (2+ dont display)
+  // Use prop and json file to import more tweets
+  // Prop needs: Caption, Link, Profile Name, Username, 
+  return (
+    <div>
+      <dl>
+        <dt>ChatGPT Chef</dt>
+        <dd>
+          <blockquote className="twitter-tweet">
+            <p lang="art" dir="ltr">👍🤣😍 <a href="https://t.co/VUAeMMcu2h">https://t.co/VUAeMMcu2h</a></p>&mdash;
+            ChatGPT Chef (@ChatGPTChef) <a
+              href="https://twitter.com/ChatGPTChef/status/1619644451714113536?ref_src=twsrc%5Etfw">January 29,
+              2023</a>
+          </blockquote>
+          {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
+          <p>Comment</p>
+        </dd>
+        <dt>ChatGPT 2049</dt>
+        <dd>
+          <blockquote className="twitter-tweet">
+            <p lang="en" dir="ltr">ChatGPT is a free money printer. But 99% of people don&#39;t use it
+              properly. That&#39;s why I created this FREE resource: •100+ ChatGPT Business
+              Ideas •500+ Prompts •500+ AI tools •Best ChatGPT Resources Like, Retweet, Follow,
+              Comment &#39;me&#39; &amp; I&#39;ll DM it… <a
+                href="https://t.co/3IerWfIJxC">https://t.co/3IerWfIJxC</a></p>&mdash; ChatGPT 2049 (@ChatGPT2049) <a
+                  href="https://twitter.com/rowancheung/status/1619789758191788034?ref_src=twsrc%5Etfw">January 29,
+              2023</a>
+          </blockquote>
+          {/* <script async src="https://platform.twitter.com/widgets.js"></script> */}
+          <p>Comment</p>
+        </dd>
+      </dl>
+      <Outlet />
+    </div>
 
 
-    );
+  );
 }
 
 function LoadTweets(props) {
@@ -72,28 +72,28 @@ function LoadTweets(props) {
 export default function Tweets(props) {
   const [tweets, setTweets] = useState([]);
   const [descending, setDescending] = useState(true);
-  
+
   useEffect(() => {
     const db = getDatabase();
     const postsRef = ref(db, 'tweets');
-    
+
     const offFunction = onValue(postsRef, (snapshot) => {
       const valueObj = snapshot.val();
       const objKeys = Object.keys(valueObj);
       const objArray = objKeys.map((keyString) => {
-          const tweetsObj = valueObj[keyString];
-          tweetsObj.key = keyString;
-          return tweetsObj;
+        const tweetsObj = valueObj[keyString];
+        tweetsObj.key = keyString;
+        return tweetsObj;
       })
-          setTweets(objArray.sort((a,b) => b.timestamp - a.timestamp));
-      })
+      setTweets(objArray.sort((a, b) => b.timestamp - a.timestamp));
+    })
 
-      function cleanup() {
-          offFunction();
-      }
-      return cleanup;
+    function cleanup() {
+      offFunction();
+    }
+    return cleanup;
   }, [])
-  
+
   const handleClick = (event) => {
     setTweets(tweets.reverse());
     setDescending(!descending);
@@ -101,12 +101,16 @@ export default function Tweets(props) {
   }
 
   return (
-        <div className="container">
-          <button className='btn btn-info btn-outline-dark' onClick={handleClick}>Filter Date: {descending ? 'Descending' : 'Ascending'}</button>
-            <h2>Tweets</h2>
-            {/* <Link className="btn btn-info btn-outline-dark" to='/tweets/savedtweets'>Saved Tweets</Link> */}
-            {/* <RenderTweet /> */}
-            <LoadTweets tweets={tweets}/>
-        </div>
-    );
+    <div>
+      <div className='tweetHeader'>
+        <h2>Tweets</h2>
+        <button className='btn btn-info btn-outline-dark' onClick={handleClick}>Filter Date: {descending ? 'Descending' : 'Ascending'}</button>
+        {/* <Link className="btn btn-info btn-outline-dark" to='/tweets/savedtweets'>Saved Tweets</Link> */}
+        {/* <RenderTweet /> */}
+      </div>
+      <div className='container tweetDisplay'>
+        <LoadTweets tweets={tweets} />
+      </div>
+    </div>
+  );
 }
