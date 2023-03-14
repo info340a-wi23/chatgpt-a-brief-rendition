@@ -90,7 +90,6 @@ function CreateDiscussionPost(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(input)
         makePostCallback(input.topic, input.post);
         setInput('')
     }
@@ -158,25 +157,24 @@ export default function DiscussionPage(props) {
         
         const db = getDatabase();
         const discussions = ref(db, 'discussion_log');
-        const updateDiscussion = [.../*props.*/discussionPosts, newPost];
-        props.setDiscussionPosts(updateDiscussion);
-        console.log(newPost)
+        const updateDiscussion = [...discussionPosts, newPost];
+        setDiscussionPosts(updateDiscussion);
         firebasePush(discussions, newPost);
     }
 
     const handleLikePost = (post) => {
-        /*props.*/setLikedPosts([.../*props.*/likedPosts, post]);
+        setLikedPosts([...likedPosts, post]);
     };
       
     const handleDislikePost = (post) => {
-        /*props.*/setDislikedPosts([.../*props.*/dislikedPosts, post]);
+        setDislikedPosts([...dislikedPosts, post]);
     };
 
     return (
         <div>
-            <Search setLikedPosts={/*props.*/setLikedPosts}currentUser={/*props.*/currentUser} likedPosts={/*props.*/likedPosts} dislikedPosts={/*props.*/dislikedPosts}/> 
-            <RenderAllPost postList={/*props.*/discussionPosts} likedPosts={/*props.*/likedPosts} dislikedPosts={/*props.*/dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost}/>
-            <CreateDiscussionPost currentUser={/*props.*/currentUser} makePostCallback={createPost} />
+            <Search setLikedPosts={setLikedPosts}currentUser={currentUser} likedPosts={likedPosts} dislikedPosts={dislikedPosts}/> 
+            <RenderAllPost postList={discussionPosts} likedPosts={likedPosts} dislikedPosts={dislikedPosts} onLikePost={handleLikePost} onDislikePost={handleDislikePost}/>
+            <CreateDiscussionPost currentUser={currentUser} makePostCallback={createPost} />
         </div>
     )
 }

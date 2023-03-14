@@ -25,13 +25,11 @@ export default function ProfilePage(props) {
         const imageRef = ref(storage, "userImages/"+currentUser.userId+".png");
         await uploadBytes(imageRef, imageFile)
         const downloadUrlString = await getDownloadURL(imageRef);
-        console.log(downloadUrlString);
 
         await updateProfile(currentUser, { photoURL: downloadUrlString} );
 
         const db = getDatabase();
         const refString = "userData/"+currentUser.userId+"/imgUrl";
-        console.log(refString);
         const userImgRef = dbRef(db, "userData/"+currentUser.userId+"/imgUrl")
         firebaseSet(userImgRef, downloadUrlString);
 

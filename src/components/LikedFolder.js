@@ -8,8 +8,6 @@ import LikeDislike from './LikeDislike';
 import { set as firebaseSet, onValue, push as firebasePush} from 'firebase/database';
 
 function RenderLikedPosts(props) {
-    console.log(props.likedPosts); //shows that likePosts is undefined
-
   const currentPost = props.likedPosts; //changed from props.postList
   const postList = currentPost.map((singlePost) => {
     const { userId, userName, userImg, userRole, numPosts, totalPoints, timestamp, topic, post, likes, dislikes } = singlePost;
