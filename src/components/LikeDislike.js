@@ -3,19 +3,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LikeDislike(props) {
   const { post } = props;
-  //just number states
-  const [like, setLike] = useState(post.likes); 
+  const [like, setLike] = useState(post.likes);
   const [dislike, setDislike] = useState(post.dislikes);
-  //passed in the array of liked posts, but now how to pass it to liked/disliked folder files
-    // props.likedPosts
-    // props.dislikedPosts
+  const [userReaction, setUserReaction] = useState(null);
+  const [reactionsCount, setReactionsCount] = useState(post.likes + post.dislikes);
+
   const handleLike = () => {
-    setLike(like + 1);
+    if (userReaction === 'like') {
+      setUserReaction(null);
+      setLike(like - 1);
+      setReactionsCount(reactionsCount - 1);
+    } else if (userReaction === 'dislike') {
+      setUserReaction('like');
+      setLike(like + 1);
+      setDislike(dislike - 1);
+    } else {
+      setUserReaction('like');
+      setLike(like + 1);
+      setReactionsCount(reactionsCount + 1);
+    }
     props.onLikePost();
   };
   
   const handleDislike = () => {
-    setDislike(dislike + 1);
+    if (userReaction === 'dislike') {
+      setUserReaction(null);
+      setDislike(dislike - 1);
+      setReactionsCount(reactionsCount - 1);
+    } else if (userReaction === 'like') {
+      setUserReaction('dislike');
+      setLike(like - 1);
+      setDislike(dislike + 1);
+    } else {
+      setUserReaction('dislike');
+      setDislike(dislike + 1);
+      setReactionsCount(reactionsCount + 1);
+    }
     props.onDislikePost();
   };
 
