@@ -12,11 +12,9 @@ import Footer from './Footer';
 import SignInPage from './SignInPage';
 import ProfilePage from './ProfilePage';
 import ErrorPage from './ErrorPage';
-import SaveTweets from './SaveTweets';
 
 // OTHER IMPORTS HERE
 import USERS from '../data/users.json';
-import CHAT_HISTORY from '../data/chat_log.json';
 import TWEETS from '../data/tweets.json';
 
 export default function App(props) {
@@ -58,9 +56,7 @@ export default function App(props) {
         <Route path='' element={<Navigate to='/home' />} />
         <Route path='/home' element={<HomePage />} />
         <Route path='/about' element={<About />} />
-        <Route path='/tweets' element={<Tweets tweets={tweets} />}>
-          <Route path='savedtweets' element={<SaveTweets tweets={tweets} />} />
-        </Route>
+        <Route path='/tweets' element={<Tweets tweets={tweets} />}/>
         <Route path='/signin' element={<SignInPage currentUser={currentUser} loginCallback={loginUser} />} />
         <Route path='*' element={<ErrorPage />} />
         {/* Protected */}
